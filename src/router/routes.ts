@@ -16,7 +16,7 @@ const routes: RouteRecordRaw[] = [
     component: Layout,
     children: [
       {
-        path: "nav1",
+        path: "/nav1",
         name: "Nav1",
         component: () => import("../views/Nav1.vue"),
         meta: {
@@ -25,12 +25,21 @@ const routes: RouteRecordRaw[] = [
         },
       },
       {
-        path: "nav2",
+        path: "/nav2",
         name: "Nav2",
         component: () => import("../views/Nav2.vue"),
         meta: {
           title: "这是nav2",
           icon: VideoCameraOutlined,
+        },
+      },
+      {
+        path: "/nav3",
+        name: "Nav3",
+        component: () => import("../views/Nav3.vue"),
+        meta: {
+          title: "这是nav3",
+          icon: UploadOutlined,
         },
       },
     ],

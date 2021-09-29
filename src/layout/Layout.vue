@@ -1,8 +1,13 @@
 <template>
     <a-layout :style="{ height: '100%' }">
+        <!-- 侧边栏 -->
         <SiderVue />
         <a-layout :style="{ overflowX: 'hidden' }">
+            <!-- 主题头部 -->
             <HeaderVue />
+            <!-- 主题标签 -->
+            <TabVue />
+            <!-- 主体内容 -->
             <ContentVue />
             <a-layout-footer :style="{ textAlign: 'center' }">Ant Design ©2018 Created by Ant UED</a-layout-footer>
         </a-layout>
@@ -16,6 +21,7 @@ import { useStore } from 'vuex'
 import ContentVue from './Content.vue';
 import HeaderVue from './Header.vue';
 import SiderVue from './Sider.vue';
+import TabVue from './Tab.vue';
 const store = useStore();
 
 const collapsed = ref(false)
@@ -44,21 +50,5 @@ onMounted(() => {
 <style lang="scss">
 #app {
     height: 100%;
-}
-.trigger {
-    font-size: 18px;
-    line-height: 64px;
-    padding: 0 24px;
-    cursor: pointer;
-    transition: color 0.3s;
-}
-// 左边抽屉颜色、样式
-.layout-sider-drawer {
-    .ant-drawer-wrapper-body {
-        background-color: #001529;
-    }
-    .ant-drawer-body {
-        padding: 0px;
-    }
 }
 </style>
