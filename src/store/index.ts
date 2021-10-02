@@ -26,7 +26,9 @@ const store = createStore({
   },
   actions: {
     generateRoutes({ commit }) {
-      const sourceRoutes = routes.find((route) => route.path === "/")?.children;
+      const sourceRoutes = routes.find(
+        (route) => route.path === "/layout"
+      )?.children;
       if (sourceRoutes) commit("setRoutes", sourceRoutes);
     },
   },

@@ -1,33 +1,32 @@
 <script setup lang="ts">
-
-import { useStore } from 'vuex'
 import { useRoute, useRouter, RouteRecordRaw } from 'vue-router'
-import { ref, inject } from 'vue';
+import routes from '../../router/routes';
+import { ref } from 'vue';
 import { watch } from '@vue/runtime-core';
-const store = useStore();
+import MenuItem from './MenuItem.vue';
+
 const route = useRoute();
 const router = useRouter();
-store.dispatch('generateRoutes')
-const routes: RouteRecordRaw[] = store.getters.getRoutes
 const selectedKeys = ref<string[]>([route.path])
+
+const menuRoutes = routes.find((item: RouteRecordRaw) => item.name === 'Layout')?.children
+// 监控path变化来改变selectedKeys
 watch(() => route.path, () => {
     selectedKeys.value = [route.path]
 })
 
-// 这个函数要改的--现在只有一层菜单----------------------------------
-const handleClick = ({ key, keyPath }: { key: string, keyPath: string[] }) => {
-    router.push(key)
+const resolvPath = (path: Array<string>): string => {
+    return path.map((item) => "/" + item).join("")
 }
 
-
+const handleClick = ({ keyPath }: { key: string, keyPath: string[] }) => {
+    router.push(resolvPath(keyPath))
+}
 
 </script>
 
 <template>
     <a-menu theme="dark" mode="inline" v-model:selectedKeys="selectedKeys" @click="handleClick">
-        <a-menu-item :key="item.path" v-for="item in routes">
-            <component :is="item.meta?.icon" />
-            <span class="nav-text">{{ item.meta?.title }}</span>
-        </a-menu-item>
+        <MenuItem v-for="item in menuRoutes" :key="item.path" :item="item"></MenuItem>
     </a-menu>
 </template>
