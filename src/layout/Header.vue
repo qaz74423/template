@@ -5,13 +5,20 @@ import {
     MenuFoldOutlined,
     MenuUnfoldOutlined,
 } from '@ant-design/icons-vue';
+import BreadcrumbVue from './Breadcrumb.vue';
+import UserInfoVue from './UserInfo.vue';
 const collapsed = inject('collapsed')
+const isMob = inject('isMob')
 </script>
 
 <template>
     <a-layout-header :style="{ background: '#fff', padding: 0 }">
         <menu-unfold-outlined v-if="collapsed" class="trigger" @click="collapsed = false"></menu-unfold-outlined>
         <menu-fold-outlined v-else class="trigger" @click="collapsed = true"></menu-fold-outlined>
+        <!-- 面包屑 -->
+        <BreadcrumbVue v-if="!isMob"></BreadcrumbVue>
+        <!-- 个人信息 -->
+        <UserInfoVue></UserInfoVue>
     </a-layout-header>
 </template>
 

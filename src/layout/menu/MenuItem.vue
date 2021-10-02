@@ -21,7 +21,6 @@ const { item } = defineProps({
         default: {}
     }
 })
-console.log(item);
 
 
 </script>

@@ -11,6 +11,8 @@
             <ContentVue />
             <a-layout-footer :style="{ textAlign: 'center' }">Ant Design ©2018 Created by Ant UED</a-layout-footer>
         </a-layout>
+        <!-- 右边设置栏 -->
+        <SettingVue />
     </a-layout>
 </template>
 
@@ -22,6 +24,7 @@ import ContentVue from './Content.vue';
 import HeaderVue from './Header.vue';
 import SiderVue from './Sider.vue';
 import TabVue from './Tab.vue';
+import SettingVue from './Setting.vue';
 const store = useStore();
 
 const collapsed = ref(false)

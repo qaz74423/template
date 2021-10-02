@@ -57,7 +57,7 @@ const tabChange = (activeKey: string) => {
 .layout-tabs {
     padding: 10px 15px;
 }
-::v-deep .ant-tabs-bar {
+:deep(.ant-tabs-bar) {
     margin: 0px;
 }
 </style>
