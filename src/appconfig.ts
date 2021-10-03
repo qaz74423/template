@@ -15,14 +15,10 @@ export default {
   /**
    * 触发手机模式的窗口宽度
    */
-  mobileWidth: 800,
+  mobileWidth: 768,
   /**
    * 路由过渡动画
    * css:@assets/css/transition.scss
    */
-  // transition: "fade-right",
-  /**
-   * 多标签页
-   */
-  isTabs: true,
+  transition: "fade-left",
 };

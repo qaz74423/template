@@ -15,14 +15,14 @@ const routes: RouteRecordRaw[] = [
     path: "/",
     name: "Layout",
     component: Layout,
-    redirect: "/nav1",
+    redirect: "/dashboard",
     children: [
       {
-        path: "nav1",
-        name: "Nav1",
-        component: () => import("../views/Nav1.vue"),
+        path: "dashboard",
+        name: "Dashboard",
+        component: () => import("../views/dashboard/Dashboard.vue"),
         meta: {
-          title: "这是nav1",
+          title: "这是Dashboard",
           icon: UserOutlined,
         },
       },
@@ -56,6 +56,11 @@ const routes: RouteRecordRaw[] = [
         },
       },
     ],
+  },
+  {
+    path: "/login",
+    name: "Login",
+    component: () => import("../views/login/Login.vue"),
   },
 ];
 

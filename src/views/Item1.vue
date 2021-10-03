@@ -1,3 +1,5 @@
 <script lang="ts" setup></script>
 
-<template>我是item1</template>
+<template>
+    <div>我是item1</div>
+</template>

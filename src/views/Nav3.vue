@@ -1,3 +1,5 @@
 <script lang="ts" setup></script>
 
-<template>我是nav3</template>
+<template>
+    <div>我是nav3</div>
+</template>

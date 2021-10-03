@@ -6,10 +6,13 @@
             <!-- 主题头部 -->
             <HeaderVue />
             <!-- 主题标签 -->
-            <TabVue />
+            <TabVue v-if="isTabs" />
             <!-- 主体内容 -->
             <ContentVue />
-            <a-layout-footer :style="{ textAlign: 'center' }">Ant Design ©2018 Created by Ant UED</a-layout-footer>
+            <a-layout-footer
+                v-if="showFooter"
+                :style="{ textAlign: 'center' }"
+            >Ant Design ©2018 Created by Ant UED</a-layout-footer>
         </a-layout>
         <!-- 右边设置栏 -->
         <SettingVue />
@@ -29,19 +32,23 @@ const store = useStore();
 
 const collapsed = ref(false)
 const isMob = ref(false)
+const isTabs = ref(true)
+const showFooter = ref(false)
+const transition = ref<string>('fade-right')
 
 provide("collapsed", collapsed)
 provide("isMob", isMob)
-
+provide('isTabs', isTabs)
+provide('showFooter', showFooter)
+provide('transition', transition)
 const checkIsMobile = () => {
     if (document.body.clientWidth < store.getters.getMobileWidth) {
-        store.commit('setIsmob', true)
+        isMob.value = true
         // 当宽度过低时收起菜单
         collapsed.value = true
     } else {
-        store.commit('setIsmob', false)
+        isMob.value = false
     }
-    isMob.value = store.getters.getIsMob
 }
 onMounted(() => {
     checkIsMobile()
@@ -51,7 +58,4 @@ onMounted(() => {
 </script>
 
 <style lang="scss">
-#app {
-    height: 100%;
-}
 </style>

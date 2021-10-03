@@ -1,5 +1,12 @@
 <script lang="ts" setup>
 import { UserOutlined } from "@ant-design/icons-vue";
+import { useRouter } from 'vue-router'
+const router = useRouter();
+const logout = () => {
+    // 清除token之类的操作
+    //.........
+    router.push('/login')
+}
 </script>
 <template>
     <a-dropdown class="right">
@@ -19,7 +26,7 @@ import { UserOutlined } from "@ant-design/icons-vue";
                 <a-menu-item key="0">个人中心</a-menu-item>
                 <a-menu-item key="1">个人设置</a-menu-item>
                 <a-menu-divider />
-                <a-menu-item key="2">更多...</a-menu-item>
+                <a-menu-item key="2" @click="logout">退出登录</a-menu-item>
             </a-menu>
         </template>
     </a-dropdown>

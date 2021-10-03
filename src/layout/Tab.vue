@@ -55,7 +55,8 @@ const tabChange = (activeKey: string) => {
 
 <style lang="scss" scoped>
 .layout-tabs {
-    padding: 10px 15px;
+    padding: 0 15px;
+    border-bottom: 1px solid #d8dce5;
 }
 :deep(.ant-tabs-bar) {
     margin: 0px;
