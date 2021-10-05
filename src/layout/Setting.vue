@@ -59,5 +59,6 @@ const onClose = () => {
 }
 .setting-item {
     margin-bottom: 25px;
+    align-items: center;
 }
 </style>

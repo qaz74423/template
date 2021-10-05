@@ -1,15 +1,15 @@
 import { RouteRecordRaw } from "vue-router";
 
 import Layout from "../layout/Layout.vue";
-import MidRouterView from "../components/MidRouterView.vue";
-import {
-  UserOutlined,
-  VideoCameraOutlined,
-  UploadOutlined,
-  BarChartOutlined,
-  CloudOutlined,
-  AppstoreOutlined,
-} from "@ant-design/icons-vue";
+import { UserOutlined } from "@ant-design/icons-vue";
+
+const files = import.meta.globEager("./modules/*.ts");
+
+const modules: RouteRecordRaw[] = [];
+for (const key in files) {
+  modules.push(files[key]["default"]);
+}
+
 const routes: RouteRecordRaw[] = [
   {
     path: "/",
@@ -26,35 +26,7 @@ const routes: RouteRecordRaw[] = [
           icon: UserOutlined,
         },
       },
-      {
-        path: "nav2",
-        name: "Nav2",
-        component: MidRouterView,
-        meta: {
-          title: "这是nav2",
-          icon: VideoCameraOutlined,
-        },
-        children: [
-          {
-            path: "item1",
-            name: "item1",
-            component: () => import("../views/Item1.vue"),
-            meta: {
-              title: "这是nav2下的item",
-              icon: BarChartOutlined,
-            },
-          },
-        ],
-      },
-      {
-        path: "nav3",
-        name: "Nav3",
-        component: () => import("../views/Nav3.vue"),
-        meta: {
-          title: "这是nav3",
-          icon: UploadOutlined,
-        },
-      },
+      ...modules,
     ],
   },
   {
