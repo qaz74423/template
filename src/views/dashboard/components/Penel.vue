@@ -23,7 +23,7 @@ const PanelList = [
 </script>
 
 <template>
-    <a-row type="flex" justify="space-between" :gutter="16">
+    <a-row type="flex" justify="space-between" :gutter="[16, 16]">
         <a-col v-for="item in PanelList" :key="item" :xl="6" :md="12" :sm="12" :xs="12">
             <PenelItem :item="item"></PenelItem>
         </a-col>

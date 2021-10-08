@@ -31,9 +31,8 @@ const { item } = defineProps({
     cursor: pointer;
     backdrop-filter: blur(5px);
     box-shadow: 0 8px 12px rgba(255, 255, 255, 0.3);
-    margin-bottom: 16px;
     &:hover .icon {
-        background-color: #000;
+        background-color: rgb(24, 144, 255);
         color: #fff;
         transition: all 0.8s;
         border-radius: 8px;

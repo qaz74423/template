@@ -1,21 +1,6 @@
 <script lang="ts" setup>
-import { onMounted, onUnmounted, ref, Ref } from '@vue/runtime-core'
-import * as echarts from 'echarts'
-import { useECharts } from '../../../../../hooks/useEcharts';
+import ChartMaker from '../../../../../components/ChartMaker.vue';
 
-const { width, height } = defineProps({
-
-    height: {
-        type: String,
-        default: '300px'
-    },
-    width: {
-        type: String,
-        default: '100%'
-    }
-})
-
-const chartRef = ref<HTMLDivElement | null>(null);
 
 const option: echarts.EChartsCoreOption = {
     xAxis: {
@@ -26,23 +11,32 @@ const option: echarts.EChartsCoreOption = {
         {
             data: [10, 22, 28, 23, 19],
             type: 'line',
-            smooth: true
-        }
-    ]
+            smooth: true,
+            color: [
+                '#c23531',
+
+            ]
+        },
+        {
+            data: [20, 15, 20, 23, 15],
+            type: 'line',
+            smooth: true,
+            color: [
+
+                '#61a0a8',
+
+            ]
+        },
+
+    ],
+
+
 };
-let removeListener: any = null
-onMounted(() => {
-    const { setOption, removeResize } = useECharts(chartRef as Ref<HTMLDivElement>)
-    removeListener = removeResize
-    setOption(option)
-})
-onUnmounted(() => {
-    removeListener()
-})
+
 </script>
 
 <template>
-    <div ref="chartRef" :style="{ height, width }" />
+    <ChartMaker :option="option" />
 </template>
 
 <style lang="scss" scoped>

@@ -1,7 +1,5 @@
 <script setup lang="ts">
-import { ref } from '@vue/reactivity';
-import { onMounted } from '@vue/runtime-core';
-import * as echarts from 'echarts'
+import ChartMaker from '../../../components/ChartMaker.vue';
 
 const option = {
     xAxis: {
@@ -17,28 +15,11 @@ const option = {
     ]
 };
 
-onMounted(() => {
-    const charts = echarts.init(document.getElementById('echarts')!)
-    charts.setOption(option)
-    window.onresize = function () {
-        charts.resize();
-    };
-})
-
 </script>
 
 <template>
-    <div class="wrap">
-        <div id="echarts"></div>
-    </div>
+    <ChartMaker :width="'100%'" :height="'500px'" :option="option" :theme="'dark'" />
 </template>
 
 <style lang="scss">
-.wrap {
-    background-color: #fff;
-    height: 500px;
-    #echarts {
-        height: 100%;
-    }
-}
 </style>

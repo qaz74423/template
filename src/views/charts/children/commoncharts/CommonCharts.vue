@@ -8,7 +8,7 @@ import PieCharts from './components/PieCharts.vue';
         <a-card class="chart-container" title="LineCharts">
             <LineCharts />
         </a-card>
-        <a-card class="chart-container" title="LineCharts">
+        <a-card class="chart-container" title="PieCharts">
             <PieCharts />
         </a-card>
     </div>
@@ -16,8 +16,8 @@ import PieCharts from './components/PieCharts.vue';
 
 <style>
 .chart-container {
-    width: 100%;
-    height: 500px;
+    /* width: 100%; */
+    /* height: 500px; */
     margin-bottom: 16px;
 }
 </style>

@@ -1,13 +1,16 @@
 import * as echarts from "echarts";
 import { Ref, unref } from "vue";
 import { useDebounceFn } from "@vueuse/core";
-import { useEventListener } from "./useEventListener";
-export function useECharts(elRef: Ref<HTMLDivElement>) {
-  let chartInstance: echarts.ECharts | null = null;
 
+export function useECharts(
+  elRef: Ref<HTMLDivElement>,
+  theme: "light" | "dark" | "default" = "default"
+) {
+  let chartInstance: echarts.ECharts | null = null;
   let resize = () => {
     chartInstance?.resize();
   };
+
   // 防抖
   resize = useDebounceFn(resize, 200);
 
@@ -23,7 +26,7 @@ export function useECharts(elRef: Ref<HTMLDivElement>) {
     if (!el || !unref(el)) {
       return;
     }
-    chartInstance = echarts.init(el);
+    chartInstance = echarts.init(el, theme);
     addResize();
   };
 

@@ -23,8 +23,8 @@ const logout = () => {
         </span>
         <template #overlay>
             <a-menu>
-                <a-menu-item key="0">个人中心</a-menu-item>
-                <a-menu-item key="1">个人设置</a-menu-item>
+                <a-menu-item key="0">个人中心（没写）</a-menu-item>
+                <a-menu-item key="1">个人设置（没写）</a-menu-item>
                 <a-menu-divider />
                 <a-menu-item key="2" @click="logout">退出登录</a-menu-item>
             </a-menu>

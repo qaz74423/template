@@ -1,5 +1,9 @@
 import { RouteRecordRaw } from "vue-router";
-import { AreaChartOutlined, LineChartOutlined } from "@ant-design/icons-vue";
+import {
+  AreaChartOutlined,
+  LineChartOutlined,
+  PieChartOutlined,
+} from "@ant-design/icons-vue";
 const routes: RouteRecordRaw = {
   path: "charts",
   name: "Charts",
@@ -17,6 +21,16 @@ const routes: RouteRecordRaw = {
       meta: {
         title: "CommenCharts",
         icon: LineChartOutlined,
+      },
+    },
+    {
+      path: "action-charts",
+      name: "ActionCharts",
+      component: () =>
+        import("../../views/charts/children/action/ActionChart.vue"),
+      meta: {
+        title: "ActionCharts",
+        icon: PieChartOutlined,
       },
     },
   ],

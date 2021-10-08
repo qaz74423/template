@@ -1,20 +1,6 @@
 <script lang="ts" setup>
-import { onMounted, ref, Ref, PropType } from '@vue/runtime-core'
-import { useECharts } from '../../../../../hooks/useEcharts';
-import * as echarts from 'echarts'
+import ChartMaker from '../../../../../components/ChartMaker.vue';
 
-const { height, width } = defineProps({
-    height: {
-        type: String as PropType<string>,
-        default: '500px'
-    },
-    width: {
-        type: String as PropType<string>,
-        default: '100%'
-    }
-})
-
-const chartRef = ref<HTMLDivElement | null>()
 const option: echarts.EChartsCoreOption = {
     series: [
         {
@@ -38,14 +24,11 @@ const option: echarts.EChartsCoreOption = {
     ]
 }
 
-onMounted(() => {
-    const { setOption } = useECharts(chartRef as Ref<HTMLDivElement>)
-    setOption(option)
-})
+
 </script>
 
 <template>
-    <div ref="chartRef" :style="{ height, width }"></div>
+    <ChartMaker :option="option" />
 </template>
 
 <style lang="scss" scoped>
