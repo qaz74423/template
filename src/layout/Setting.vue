@@ -1,9 +1,12 @@
 <script setup lang="ts">
-import { ref, inject } from "vue";
+import { ref, Ref, inject } from "vue";
 import { SettingOutlined, CloseOutlined } from "@ant-design/icons-vue";
-const isTabs = inject('isTabs')
-const showFooter = inject('showFooter')
-const transition = inject('transition')
+import { InjectIsTabs, InjectShowFooter, InjectTransition } from '../context'
+const isTabs = inject(InjectIsTabs)
+const showFooter = inject(InjectShowFooter)
+const transition = inject(InjectTransition)
+console.log(transition?.value);
+
 const isVisible = ref<boolean>(false)
 const onClose = () => {
     isVisible.value = false
@@ -25,7 +28,7 @@ const onClose = () => {
             </div>
         </template>
         <a-row class="setting-item" type="flex" justify="space-between">
-            <span>Open Tags-View</span>
+            <span>Show Tags-View</span>
             <a-switch v-model:checked="isTabs" />
         </a-row>
         <a-row class="setting-item" type="flex" justify="space-between">

@@ -5,10 +5,11 @@ import {
     MenuFoldOutlined,
     MenuUnfoldOutlined,
 } from '@ant-design/icons-vue';
+import { InjectCollapsed, InjectIsMob } from '../context'
 import BreadcrumbVue from './Breadcrumb.vue';
 import UserInfoVue from './UserInfo.vue';
-const collapsed = inject('collapsed')
-const isMob = inject('isMob')
+const collapsed = inject(InjectCollapsed)
+const isMob = inject(InjectIsMob)
 </script>
 
 <template>

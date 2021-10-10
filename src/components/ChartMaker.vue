@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 import { onMounted, onUnmounted, ref, Ref, PropType } from '@vue/runtime-core'
 import * as echarts from 'echarts'
-import { useECharts } from '../hooks/useEcharts'
+import { useECharts } from '../hooks/useECharts'
 const { width, height, option, theme } = defineProps({
     height: {
         type: String,
@@ -20,17 +20,7 @@ const { width, height, option, theme } = defineProps({
         default: 'default'
     }
 })
-const chartRef = ref<HTMLDivElement | null>(null);
-
-let removeListener: any = null
-onMounted(() => {
-    const { setOption, removeResize } = useECharts(chartRef as Ref<HTMLDivElement>, theme)
-    removeListener = removeResize
-    setOption(option)
-})
-onUnmounted(() => {
-    removeListener()
-})
+const [chartRef] = useECharts(option)
 </script>
 
 <template>

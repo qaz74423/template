@@ -23,6 +23,15 @@
 
 import { ref, onMounted, provide } from 'vue';
 import { useStore } from 'vuex'
+import {
+    InjectCollapsed,
+    InjectIsMob,
+    InjectIsTabs,
+    InjectShowFooter,
+    RouterFadeType,
+    InjectTransition
+} from '../context'
+
 import ContentVue from './Content.vue';
 import HeaderVue from './Header.vue';
 import SiderVue from './Sider.vue';
@@ -30,17 +39,17 @@ import TabVue from './Tab.vue';
 import SettingVue from './Setting.vue';
 const store = useStore();
 
-const collapsed = ref(false)
-const isMob = ref(false)
-const isTabs = ref(true)
-const showFooter = ref(false)
-const transition = ref<string>('fade-right')
+const collapsed = ref<boolean>(false)
+const isMob = ref<boolean>(false)
+const isTabs = ref<boolean>(true)
+const showFooter = ref<boolean>(false)
+const transition = ref<RouterFadeType>('fade-right')
 
-provide("collapsed", collapsed)
-provide("isMob", isMob)
-provide('isTabs', isTabs)
-provide('showFooter', showFooter)
-provide('transition', transition)
+provide(InjectCollapsed, collapsed)
+provide(InjectIsMob, isMob)
+provide(InjectIsTabs, isTabs)
+provide(InjectShowFooter, showFooter)
+provide(InjectTransition, transition)
 const checkIsMobile = () => {
     if (document.body.clientWidth < store.getters.getMobileWidth) {
         isMob.value = true

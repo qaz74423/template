@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import { GithubOutlined } from "@ant-design/icons-vue";
 import { inject } from "@vue/runtime-core";
-
-const isMob = inject('isMob')
+import { InjectIsMob } from '../../../context'
+const isMob = inject(InjectIsMob)
 const { item } = defineProps({
     item: {
         type: Object,

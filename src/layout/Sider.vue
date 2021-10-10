@@ -3,8 +3,9 @@
 import { inject } from 'vue'
 import MenuVue from './menu/Menu.vue';
 import SiteLogoVue from './SiteLogo.vue';
-const collapsed = inject('collapsed')
-const isMob = inject('isMob')
+import { InjectCollapsed, InjectIsMob } from '../context'
+const collapsed = inject(InjectCollapsed)
+const isMob = inject(InjectIsMob)
 </script>
 
 <template>

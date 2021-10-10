@@ -1,8 +1,7 @@
 <script lang="ts" setup>import { inject } from "@vue/runtime-core";
 import { useStore } from "vuex";
-
-const store = useStore();
-const transition: string | undefined = inject('transition')
+import { InjectTransition } from '../context'
+const transition = inject(InjectTransition)
 
 </script>
 

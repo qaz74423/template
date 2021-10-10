@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import ChartMaker from '../../../../../components/ChartMaker.vue';
+
 import * as echarts from 'echarts'
 import { useECharts } from '../../../../../hooks/useEcharts';
-import { ref, Ref, onMounted, onUnmounted } from 'vue';
+
 
 const option: echarts.EChartsCoreOption = {
     title: {
@@ -42,46 +42,11 @@ const option: echarts.EChartsCoreOption = {
         }
     ]
 };
-const chartRef = ref<HTMLDivElement | null>(null)
 
-let listenerArray: Array<() => void> = [];
+const [chartRef] = useECharts(option)
 
-onMounted(() => {
-    const { getInstance, removeResize } = useECharts(chartRef as Ref<HTMLDivElement>)
-    const myChart = getInstance()
-    myChart?.setOption(option)
-    let currentIndex = -1;
-    const ser = setInterval(function () {
-        var dataLen = option.series[0].data.length;
-        // 取消之前高亮的图形
-        myChart?.dispatchAction({
-            type: 'downplay',
-            seriesIndex: 0,
-            dataIndex: currentIndex
-        });
-        currentIndex = (currentIndex + 1) % dataLen;
-        // 高亮当前图形
-        myChart?.dispatchAction({
-            type: 'highlight',
-            seriesIndex: 0,
-            dataIndex: currentIndex
-        });
-        // 显示 tooltip
-        myChart?.dispatchAction({
-            type: 'showTip',
-            seriesIndex: 0,
-            dataIndex: currentIndex
-        });
-    }, 1000);
-    const removeSer = () => {
-        clearInterval(ser)
-    }
-    listenerArray.push(removeResize)
-    listenerArray.push(removeSer)
-})
-onUnmounted(() => {
-    listenerArray.map((item: () => void) => { item() })
-})
+
+
 
 </script>
 

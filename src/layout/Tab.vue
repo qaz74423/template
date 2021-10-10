@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed } from '@vue/reactivity';
+
 import { useRoute, useRouter } from 'vue-router';
 import { ref, watch } from 'vue'
 interface ITabType {

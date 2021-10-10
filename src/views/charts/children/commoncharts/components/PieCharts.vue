@@ -1,29 +1,37 @@
 <script lang="ts" setup>
 import ChartMaker from '../../../../../components/ChartMaker.vue';
 
+
 const option: echarts.EChartsCoreOption = {
+    xAxis: {
+        data: ['A', 'B', 'C', 'D', 'E']
+    },
+    yAxis: {},
     series: [
         {
-            type: 'pie',
-            data: [
-                {
-                    value: 335,
-                    name: '直接访问'
-                },
-                {
-                    value: 234,
-                    name: '联盟广告'
-                },
-                {
-                    value: 1548,
-                    name: '搜索引擎'
-                }
-            ],
-            radius: '50%'
-        }
-    ]
-}
+            data: [10, 22, 28, 23, 19],
+            type: 'line',
+            smooth: true,
+            color: [
+                '#c23531',
 
+            ]
+        },
+        {
+            data: [20, 15, 20, 23, 15],
+            type: 'line',
+            smooth: true,
+            color: [
+
+                '#61a0a8',
+
+            ]
+        },
+
+    ],
+
+
+};
 
 </script>
 
