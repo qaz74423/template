@@ -1,9 +1,8 @@
-<script setup lang="ts">import { useStore } from 'vuex';
+<script setup lang="ts">
 
-const store = useStore();
-const logo = store.getters.getLogo
+const logo = import.meta.env.VITE_LOGO
 
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        </script>
+</script>
 
 <template>
     <a-card class="card">

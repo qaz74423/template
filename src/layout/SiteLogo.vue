@@ -1,8 +1,7 @@
 <script setup lang="ts">
-import { useStore } from 'vuex'
-const store = useStore();
-const logo = store.getters.getLogo
-const title = store.getters.getTitle
+import { StringifyOptions } from 'querystring';
+const logo = import.meta.env.VITE_LOGO as string
+const title = import.meta.env.VITE_TITLE as string
 </script>
 
 <template>

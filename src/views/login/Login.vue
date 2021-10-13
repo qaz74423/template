@@ -1,15 +1,29 @@
 <script lang="ts" setup>
 import { reactive, ref } from "@vue/reactivity";
 import { useRouter } from "vue-router";
+
+import { loginApi } from '../../api/user'
 import Stars from "../../components/stars.vue";
 
 const router = useRouter()
 const formState = reactive({
-    username: '',
-    password: ''
+    username: 'admin',
+    password: '123456'
 })
+// 功能没完善，先是一个小demo
 const login = () => {
-    router.push('/')
+    loginApi(formState).then(res => {
+        const token = res.headers.authorization
+        const userInfo = res.data?.data
+        localStorage.setItem('token', token)
+        localStorage.setItem('userInfo', JSON.stringify(userInfo))
+    }).then(
+        // 保证所有token摄入
+        () => {
+            router.push('/')
+        }
+    )
+
 }
 const reset = () => {
     formState.username = '';

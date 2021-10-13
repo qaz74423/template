@@ -4,7 +4,7 @@ import { useRouter } from 'vue-router'
 const router = useRouter();
 const logout = () => {
     // 清除token之类的操作
-    //.........
+    localStorage.clear()
     router.push('/login')
 }
 </script>

@@ -21,8 +21,7 @@
 
 <script lang="ts" setup>
 
-import { ref, onMounted, provide } from 'vue';
-import { useStore } from 'vuex'
+import { ref, onMounted, onUnmounted, provide } from 'vue';
 import {
     InjectCollapsed,
     InjectIsMob,
@@ -37,7 +36,6 @@ import HeaderVue from './Header.vue';
 import SiderVue from './Sider.vue';
 import TabVue from './Tab.vue';
 import SettingVue from './Setting.vue';
-const store = useStore();
 
 const collapsed = ref<boolean>(false)
 const isMob = ref<boolean>(false)
@@ -50,8 +48,10 @@ provide(InjectIsMob, isMob)
 provide(InjectIsTabs, isTabs)
 provide(InjectShowFooter, showFooter)
 provide(InjectTransition, transition)
+
 const checkIsMobile = () => {
-    if (document.body.clientWidth < store.getters.getMobileWidth) {
+    const EnvMobWidth: number = parseInt(import.meta.env.VITE_MOBILE_WIDTH as string)
+    if (document.body.clientWidth < EnvMobWidth) {
         isMob.value = true
         // 当宽度过低时收起菜单
         collapsed.value = true
@@ -62,6 +62,9 @@ const checkIsMobile = () => {
 onMounted(() => {
     checkIsMobile()
     window.addEventListener("resize", () => { checkIsMobile() })
+})
+onUnmounted(() => {
+    window.removeEventListener('resize', () => { checkIsMobile() })
 })
 
 </script>

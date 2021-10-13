@@ -11,6 +11,7 @@ const routes: RouteRecordRaw = {
   meta: {
     title: "charts",
     icon: AreaChartOutlined,
+    auth: false,
   },
   children: [
     {
@@ -21,6 +22,7 @@ const routes: RouteRecordRaw = {
       meta: {
         title: "CommenCharts",
         icon: LineChartOutlined,
+        auth: false,
       },
     },
     {
@@ -31,6 +33,7 @@ const routes: RouteRecordRaw = {
       meta: {
         title: "ActionCharts",
         icon: PieChartOutlined,
+        auth: false,
       },
     },
   ],

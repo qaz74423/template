@@ -5,7 +5,6 @@ import { InjectIsTabs, InjectShowFooter, InjectTransition } from '../context'
 const isTabs = inject(InjectIsTabs)
 const showFooter = inject(InjectShowFooter)
 const transition = inject(InjectTransition)
-console.log(transition?.value);
 
 const isVisible = ref<boolean>(false)
 const onClose = () => {
