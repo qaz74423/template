@@ -38,7 +38,7 @@ const logout = () => {
         </span>
         <template #overlay>
             <a-menu v-if="isLogin">
-                <a-menu-item key="0" @click="router.push('user-info')">个人中心</a-menu-item>
+                <a-menu-item key="0" @click="router.push('/user-info')">个人中心</a-menu-item>
                 <a-menu-item key="1">个人设置（没写）</a-menu-item>
                 <a-menu-divider />
                 <a-menu-item key="2" @click="logout">退出登录</a-menu-item>

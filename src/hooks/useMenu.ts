@@ -1,7 +1,7 @@
 import { useRouter, useRoute } from "vue-router";
 import type { RouteRecordRaw } from "vue-router";
 
-import { inject, watch } from "vue";
+import { inject, computed, ComputedRef } from "vue";
 import { InjectIsLogin } from "../context";
 export function useMenu() {
   const router = useRouter();
@@ -24,7 +24,7 @@ export function useMenu() {
     }
   };
 
-  // 处理路由地址
+  // 处理路由地址加上‘/’
   const resolvePath = (path: Array<string>): string => {
     return path.map((item) => "/" + item).join("");
   };
@@ -32,13 +32,20 @@ export function useMenu() {
   const handleClick = ({ keyPath }: { key: string; keyPath: string[] }) => {
     router.push(resolvePath(keyPath));
   };
-  //
 
   //   根据权限获取路由
   const getFilterMenuRouter = () => filter(isLogin?.value!, getAllMenuRouter());
 
+  // 被选菜单项
+  // 用'/'截取，取最后一项route
+  const selectedKeys: ComputedRef<string[]> = computed(() => {
+    const path: string = route.path.split("/").pop() as string;
+    return [path];
+  });
+
   return {
     getFilterMenuRouter,
     handleClick,
+    selectedKeys,
   };
 }
