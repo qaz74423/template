@@ -1,29 +1,44 @@
 <script lang="ts" setup>
 import { UserOutlined } from "@ant-design/icons-vue";
 import { useRouter } from 'vue-router'
+import { getStorage } from '../utils/auth'
+import type { UserType } from '../api/user'
+import { inject } from "vue-demi";
+import { InjectIsLogin } from '../context'
+
 const router = useRouter();
+
+const isLogin = inject(InjectIsLogin)
+
+let userInfo: UserType = {}
+if (isLogin?.value) {
+    userInfo = JSON.parse(getStorage('userInfo'))
+}
+
+const handlerClick = () => {
+    if (!isLogin?.value)
+        router.push('/login')
+}
+
 const logout = () => {
-    // 清除token之类的操作
+
     localStorage.clear()
     router.push('/login')
 }
 </script>
 <template>
-    <a-dropdown class="right">
+    <a-dropdown class="right" @click="handlerClick">
         <span class="hover-con">
-            <a-avatar
-                :size="55"
-                src="https://img1.baidu.com/it/u=3440739454,362477188&fm=26&fmt=auto"
-            >
+            <a-avatar :size="55" :src="isLogin ? userInfo.avatar : ''">
                 <template #icon>
                     <UserOutlined />
                 </template>
             </a-avatar>
-            <a class="username">JC长官</a>
+            <a class="username">{{ isLogin ? userInfo.username : '登录' }}</a>
         </span>
         <template #overlay>
-            <a-menu>
-                <a-menu-item key="0">个人中心（没写）</a-menu-item>
+            <a-menu v-if="isLogin">
+                <a-menu-item key="0" @click="router.push('user-info')">个人中心</a-menu-item>
                 <a-menu-item key="1">个人设置（没写）</a-menu-item>
                 <a-menu-divider />
                 <a-menu-item key="2" @click="logout">退出登录</a-menu-item>

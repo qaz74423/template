@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { getStorage, hasAuth } from '../utils/auth'
+import { getStorage, hasAuth } from '../../utils/auth'
 const token = getStorage('token')
 const userInfo = getStorage('userInfo')
 const isLogin = hasAuth()
@@ -11,4 +11,3 @@ const isLogin = hasAuth()
         <div>hasAuth?:{{ isLogin }}</div>
     </div>
 </template>
-

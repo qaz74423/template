@@ -12,6 +12,8 @@ type RouterFadeType = "fade-right" | "fade-left";
 
 const InjectTransition: InjectionKey<Ref<RouterFadeType>> = Symbol();
 
+const InjectIsLogin: InjectionKey<Ref<boolean>> = Symbol();
+
 export {
   InjectCollapsed,
   InjectIsMob,
@@ -19,4 +21,5 @@ export {
   InjectShowFooter,
   RouterFadeType,
   InjectTransition,
+  InjectIsLogin,
 };

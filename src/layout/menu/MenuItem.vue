@@ -1,17 +1,3 @@
-<!-- <script setup lang="ts">
-import { useRoute, useRouter, RouteRecordRaw } from 'vue-router'
-
-import routes from '../../router/routes';
-
-const menuRoutes = routes.find((item: RouteRecordRaw) => item.name === 'Layout')?.children
-
-</script>
-<template>
-    <a-menu-item :key="item.path" v-for="item in menuRoutes">
-        <component :is="item.meta?.icon" />
-        <span class="nav-text">{{ item.meta?.title }}</span>
-    </a-menu-item>
-</template> -->
 
 <script setup lang="ts">
 

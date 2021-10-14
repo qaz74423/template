@@ -28,8 +28,10 @@ import {
     InjectIsTabs,
     InjectShowFooter,
     RouterFadeType,
-    InjectTransition
+    InjectTransition,
+    InjectIsLogin
 } from '../context'
+import { hasAuth } from "../utils/auth"
 
 import ContentVue from './Content.vue';
 import HeaderVue from './Header.vue';
@@ -42,12 +44,14 @@ const isMob = ref<boolean>(false)
 const isTabs = ref<boolean>(true)
 const showFooter = ref<boolean>(false)
 const transition = ref<RouterFadeType>('fade-right')
+const isLogin = ref<boolean>(hasAuth())
 
 provide(InjectCollapsed, collapsed)
 provide(InjectIsMob, isMob)
 provide(InjectIsTabs, isTabs)
 provide(InjectShowFooter, showFooter)
 provide(InjectTransition, transition)
+provide(InjectIsLogin, isLogin)
 
 const checkIsMobile = () => {
     const EnvMobWidth: number = parseInt(import.meta.env.VITE_MOBILE_WIDTH as string)

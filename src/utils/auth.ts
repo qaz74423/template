@@ -1,5 +1,5 @@
-export function getStorage(key: string): string | null {
-  return localStorage.getItem(key);
+export function getStorage(key: string): string {
+  return localStorage.getItem(key) || "";
 }
 
 export function setStorage(key: string, value: string): void {
@@ -11,5 +11,5 @@ export function removeStorage(key: string): void {
 }
 
 export function hasAuth(): boolean {
-  return getStorage("userInfo") !== null && getStorage("token") !== null;
+  return getStorage("userInfo") !== "" && getStorage("token") !== "";
 }

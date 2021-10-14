@@ -5,21 +5,11 @@ import { UserOutlined } from "@ant-design/icons-vue";
 // 这里的权限指的是登录，后期加上角色权限
 const asyncRoutes: RouteRecordRaw[] = [
   {
-    path: "test-async",
+    path: "user-info",
     name: "Async",
-    component: () => import("../views/AsyncView.vue"),
+    component: () => import("../views/userinfo/UserInfo.vue"),
     meta: {
-      title: "Async",
-      icon: UserOutlined,
-      auth: true,
-    },
-  },
-  {
-    path: "test-async2",
-    name: "Async2",
-    component: () => import("../views/AsyncView.vue"),
-    meta: {
-      title: "Async2",
+      title: "user-info",
       icon: UserOutlined,
       auth: true,
     },
