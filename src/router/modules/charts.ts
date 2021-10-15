@@ -8,6 +8,7 @@ const route: RouteRecordRaw = {
   path: "charts",
   name: "Charts",
   component: () => import("@views/charts/Charts.vue"),
+  redirect: "commen-charts",
   meta: {
     title: "charts",
     icon: AreaChartOutlined,

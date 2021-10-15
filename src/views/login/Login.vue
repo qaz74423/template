@@ -41,7 +41,7 @@ const openStar = ref(true)
         <div class="content">
             <a-form :model="formState">
                 <a-form-item label="username">
-                    <a-input v-model:value="formState.username" />
+                    <a-input v-model:value="formState.    username" />
                 </a-form-item>
                 <a-form-item label="password">
                     <a-input v-model:value="formState.password" />
@@ -49,8 +49,8 @@ const openStar = ref(true)
 
                 <a-form-item>
                     <a-row justify="center">
-                        <a-button type="primary" @click="login">login</a-button>
-                        <a-button style="margin-left: 10px" @click="reset">reset</a-button>
+                        <a-button type="primary" @click="    login">login</a-button>
+                        <a-button style="margin-left: 10px" @click="    reset">reset</a-button>
                         <a-button style="margin-left: 10px" @click="router.push('/')">游客登录</a-button>
                     </a-row>
                 </a-form-item>

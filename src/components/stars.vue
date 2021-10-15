@@ -1,7 +1,7 @@
 <template>
   <div class="wrap">
     <div v-show="open" class="stars">
-      <div class="star" v-for="(item, index) in starsCount" :key="index" :ref="star"></div>
+      <div class="star" v-for="index in starsCount" :key="index" :ref="star"></div>
     </div>
   </div>
 </template>
@@ -19,7 +19,7 @@ export default defineComponent({
   name: "stars",
   setup() {
     const state = reactive({
-      starsCount: 800, //星星数量
+      starsCount: 400, //星星数量
       distance: 800, //间距
     });
     let starArr: Ref<Array<HTMLElement>> = ref([]);
