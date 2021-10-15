@@ -60,7 +60,8 @@ export default defineComponent({
     #e96f92 65%,
     #f7f7bf
   );
-  background-attachment: fixed;
+  // background-attachment: fixed;
+  display: flex;
   overflow: hidden;
   position: fixed;
   z-index: -1;

@@ -39,7 +39,6 @@ const openStar = ref(true)
     <!-- 主体登录内容 -->
     <div class="w">
         <div class="content">
-            <h2>测试，随便输入都可以登录</h2>
             <a-form :model="formState">
                 <a-form-item label="username">
                     <a-input v-model:value="formState.username" />
@@ -48,9 +47,12 @@ const openStar = ref(true)
                     <a-input v-model:value="formState.password" />
                 </a-form-item>
 
-                <a-form-item :wrapper-col="{ span: 24, offset: 8 }">
-                    <a-button type="primary" @click="login">login</a-button>
-                    <a-button style="margin-left: 10px" @click="reset">reset</a-button>
+                <a-form-item>
+                    <a-row justify="center">
+                        <a-button type="primary" @click="login">login</a-button>
+                        <a-button style="margin-left: 10px" @click="reset">reset</a-button>
+                        <a-button style="margin-left: 10px" @click="router.push('/')">游客登录</a-button>
+                    </a-row>
                 </a-form-item>
             </a-form>
             <a-row justify="center">
@@ -67,25 +69,17 @@ const openStar = ref(true)
     justify-content: center; /*x轴对齐方式*/
     align-items: center; /*y轴对滴方式*/
     height: 100vh;
+    width: 100%;
     background: transparent;
     .content {
-        position: relative;
-        width: 500px;
-        background-color: #fff;
+        width: 400px;
         border-radius: 20px;
         padding: 20px;
-        opacity: 0.8;
-        &::after {
-            content: "";
-            position: absolute;
-            top: 0;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background-color: rgba(255, 255, 255, 0.8);
-            border-radius: 20px;
-            z-index: -1;
-            filter: blur(20px);
+        background-color: rgba(255, 255, 255, 0.3);
+        backdrop-filter: blur(10px);
+        transition: all 1s linear;
+        &:hover {
+            backdrop-filter: blur(0px);
         }
     }
 }

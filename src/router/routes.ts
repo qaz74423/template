@@ -1,14 +1,14 @@
 import { RouteRecordRaw } from "vue-router";
 import Layout from "../layout/Layout.vue";
 import { UserOutlined } from "@ant-design/icons-vue";
-import { asyncRoutes } from "./async-routes";
-
+import { constRoutes } from "./const-route";
 // 自动导入modeles
-const files = import.meta.globEager("./modules/*.ts");
-const modules: RouteRecordRaw[] = [];
-for (const key in files) {
-  modules.push(files[key]["default"]);
-}
+const autoImport = (files: object): any[] => {
+  return Object.values(files).map((item) => item["default"]);
+};
+const files = import.meta.globEager("./modules/*.ts") as object;
+const modules: RouteRecordRaw[] = autoImport(files);
+
 const routes: RouteRecordRaw[] = [
   {
     path: "/",
@@ -19,28 +19,18 @@ const routes: RouteRecordRaw[] = [
       {
         path: "dashboard",
         name: "Dashboard",
-        component: () => import("../views/dashboard/Dashboard.vue"),
+        component: () => import("@views/dashboard/Dashboard.vue"),
         meta: {
           title: "Dashboard",
           icon: UserOutlined,
-          auth: false,
         },
       },
       ...modules,
-      // 添加权限路由
-      ...asyncRoutes,
     ],
   },
-  {
-    path: "/login",
-    name: "Login",
-    component: () => import("../views/login/Login.vue"),
-    meta: {
-      title: "Login",
-      icon: null,
-      auth: false,
-    },
-  },
+
+  // 常量路由
+  ...constRoutes,
 ];
 
 export default routes;
