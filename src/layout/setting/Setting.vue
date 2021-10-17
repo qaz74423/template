@@ -2,7 +2,10 @@
 import { ref, Ref, inject } from "vue";
 import { SettingOutlined, CloseOutlined } from "@ant-design/icons-vue";
 import { InjectIsTabs, InjectShowFooter, InjectTransition } from '../../context'
+
+
 const isTabs = inject(InjectIsTabs)
+// const { isTabs } = appService.serviceDiscovery()
 const showFooter = inject(InjectShowFooter)
 const transition = inject(InjectTransition)
 

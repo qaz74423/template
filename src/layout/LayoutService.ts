@@ -8,9 +8,11 @@ import {
 } from "../context";
 import { hasAuth } from "../utils/auth";
 import { useDebounceFn } from "@vueuse/core";
+
 export function useLayout() {
   const showFooter = inject(InjectShowFooter) as Ref<boolean>;
   const isTabs = inject(InjectIsTabs) as Ref<boolean>;
+  // const { isTabs } = appService.serviceDiscovery();
   const isMob = inject(InjectIsMob) as Ref<boolean>;
   const collapsed = inject(InjectCollapsed) as Ref<boolean>;
   // 每次进Lauout取一次登录状态
