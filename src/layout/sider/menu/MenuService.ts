@@ -2,12 +2,14 @@ import { useRouter, useRoute } from "vue-router";
 import type { RouteRecordRaw } from "vue-router";
 
 import { inject, computed, ComputedRef } from "vue";
-import { InjectIsLogin } from "../../../context";
-export function useMenu() {
+// import { InjectIsLogin } from "../../../context";
+import { appService } from "../../../AppService";
+export function menuService() {
   const router = useRouter();
   const route = useRoute();
   // 是否登录
-  const isLogin = inject(InjectIsLogin);
+  const { isLogin } = appService.serviceDiscovery();
+  // const isLogin = inject(InjectIsLogin);
   //   取所有菜单项路由
   const getAllMenuRouter = () =>
     router.options.routes.find((item: RouteRecordRaw) => item.name === "Layout")

@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { StringifyOptions } from 'querystring';
 const logo = import.meta.env.VITE_LOGO as string
 const title = import.meta.env.VITE_TITLE as string
 </script>

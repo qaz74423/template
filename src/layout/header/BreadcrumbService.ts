@@ -1,6 +1,6 @@
 import { computed } from "vue";
 import { useRoute, useRouter, RouteRecordRaw } from "vue-router";
-export function useBreadcrumb() {
+export function breadcrumbService() {
   const route = useRoute();
   const router = useRouter();
   const breadcrumbs = computed(() => {

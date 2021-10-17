@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import MenuItem from "./MenuItem.vue";
-import { useMenu } from "./MenuService";
+import { menuService } from "./MenuService";
 
-const { getFilterMenuRouter, handleClick, selectedKeys } = useMenu();
+const { getFilterMenuRouter, handleClick, selectedKeys } = menuService();
 </script>
 
 <template>

@@ -1,6 +1,6 @@
-<script lang="ts" setup>import { inject } from "@vue/runtime-core";
-import { InjectTransition } from '../../context'
-const transition = inject(InjectTransition)
+<script lang="ts" setup>
+import { appService } from '../../AppService'
+const { transition } = appService.serviceDiscovery()
 
 </script>
 

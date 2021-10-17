@@ -1,8 +1,10 @@
 <script setup lang="ts">
 import { GithubOutlined } from "@ant-design/icons-vue";
 import { inject } from "@vue/runtime-core";
-import { InjectIsMob } from '../../../context'
-const isMob = inject(InjectIsMob)
+// import { InjectIsMob } from '../../../context'
+import { appService } from '../../../AppService'
+// const isMob = inject(InjectIsMob)
+const { isMob } = appService.serviceDiscovery()
 const { item } = defineProps({
     item: {
         type: Object,

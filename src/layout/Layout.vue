@@ -1,3 +1,13 @@
+<script lang="ts" setup>
+import ContentVue from "./content/Content.vue";
+import HeaderVue from "./header/Header.vue";
+import SiderVue from "./sider/Sider.vue";
+import TabVue from "./tab/Tab.vue";
+import SettingVue from "./setting/Setting.vue";
+import { LayoutService } from "./LayoutService";
+
+const { showFooter, isTabs } = LayoutService();
+</script>
 <template>
     <a-layout :style="{ height: '100%' }">
         <!-- 侧边栏 -->
@@ -18,18 +28,5 @@
         <SettingVue />
     </a-layout>
 </template>
-
-<script lang="ts" setup>
-
-import ContentVue from "./content/Content.vue";
-import HeaderVue from "./header/Header.vue";
-import SiderVue from "./sider/Sider.vue";
-import TabVue from "./tab/Tab.vue";
-import SettingVue from "./setting/Setting.vue";
-import { useLayout } from "./LayoutService";
-
-const { showFooter, isTabs } = useLayout();
-</script>
-
 <style lang="scss">
 </style>

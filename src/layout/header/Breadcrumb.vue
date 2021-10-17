@@ -1,8 +1,8 @@
 <script setup lang="ts">
 
-import { useBreadcrumb } from './BreadcrumbService'
+import { breadcrumbService } from './BreadcrumbService'
 
-const { breadcrumbs, handerClick } = useBreadcrumb()
+const { breadcrumbs, handerClick } = breadcrumbService()
 
 </script>
 

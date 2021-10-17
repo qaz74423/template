@@ -1,11 +1,9 @@
 <script lang="ts" setup>
-
-import { inject } from 'vue'
 import MenuVue from './menu/Menu.vue';
 import SiteLogoVue from './SiteLogo.vue';
-import { InjectCollapsed, InjectIsMob } from '../../context'
-const collapsed = inject(InjectCollapsed)
-const isMob = inject(InjectIsMob)
+import { appService } from '../../AppService'
+const { collapsed, isMob } = appService.serviceDiscovery()
+
 </script>
 
 <template>

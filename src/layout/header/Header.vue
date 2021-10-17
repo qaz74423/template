@@ -1,15 +1,13 @@
 
 <script lang="ts" setup>
-import { inject } from 'vue'
 import {
     MenuFoldOutlined,
     MenuUnfoldOutlined,
 } from '@ant-design/icons-vue';
-import { InjectCollapsed, InjectIsMob } from '../../context'
+import { appService } from '../../AppService'
 import BreadcrumbVue from './Breadcrumb.vue';
 import UserInfoVue from './UserInfo.vue';
-const collapsed = inject(InjectCollapsed)
-const isMob = inject(InjectIsMob)
+const { collapsed, isMob } = appService.serviceDiscovery()
 </script>
 
 <template>

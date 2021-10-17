@@ -1,22 +1,14 @@
 import { onMounted, onUnmounted, inject, Ref } from "vue";
-import {
-  InjectCollapsed,
-  InjectIsMob,
-  InjectIsTabs,
-  InjectShowFooter,
-  InjectIsLogin,
-} from "../context";
+
+import { appService } from "../AppService";
 import { hasAuth } from "../utils/auth";
 import { useDebounceFn } from "@vueuse/core";
 
-export function useLayout() {
-  const showFooter = inject(InjectShowFooter) as Ref<boolean>;
-  const isTabs = inject(InjectIsTabs) as Ref<boolean>;
-  // const { isTabs } = appService.serviceDiscovery();
-  const isMob = inject(InjectIsMob) as Ref<boolean>;
-  const collapsed = inject(InjectCollapsed) as Ref<boolean>;
-  // 每次进Lauout取一次登录状态
-  const isLogin = inject(InjectIsLogin) as Ref<boolean>;
+export function LayoutService() {
+  // 发现服务
+  const { showFooter, isTabs, isMob, collapsed, isLogin } =
+    appService.serviceDiscovery();
+
   isLogin.value = hasAuth();
 
   const checkIsMobile = () => {

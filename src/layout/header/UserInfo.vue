@@ -3,12 +3,9 @@ import { UserOutlined } from "@ant-design/icons-vue";
 import { useRouter } from 'vue-router'
 import { getStorage } from '../../utils/auth'
 import type { UserType } from '../../api/user'
-import { inject } from "vue-demi";
-import { InjectIsLogin } from '../../context'
-
+import { appService } from '../../AppService'
 const router = useRouter();
-
-const isLogin = inject(InjectIsLogin)
+const { isLogin } = appService.serviceDiscovery()
 
 let userInfo: UserType = {}
 if (isLogin?.value) {

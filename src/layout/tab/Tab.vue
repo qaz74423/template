@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import { useTab } from "./TabService";
+import { tabService } from "./TabService";
 
-const { tabs, activeKey, onEdit, tabChange } = useTab();
+const { tabs, activeKey, onEdit, tabChange } = tabService();
 </script>
 
 <template>

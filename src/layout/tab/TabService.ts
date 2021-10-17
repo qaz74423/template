@@ -5,7 +5,7 @@ export interface TabType {
   title: string;
 }
 
-export function useTab() {
+export function tabService() {
   const route = useRoute();
   const router = useRouter();
 

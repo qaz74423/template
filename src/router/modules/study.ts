@@ -54,6 +54,27 @@ const route: RouteRecordRaw = {
         },
       ],
     },
+    {
+      path: "ipbp",
+      name: "Ipbp",
+      component: () => import("../../views/study/children/ipbp/Ipbp.vue"),
+      meta: {
+        title: "ipbp",
+        icon: FileUnknownOutlined,
+      },
+      children: [
+        {
+          path: "log",
+          name: "log",
+          component: () =>
+            import("../../views/study/children/ipbp/children/Log.vue"),
+          meta: {
+            title: "log",
+            icon: FileUnknownOutlined,
+          },
+        },
+      ],
+    },
   ],
 };
 
