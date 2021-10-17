@@ -1,6 +1,6 @@
 <script setup lang="ts">
 
-import { useBreadcrumb } from '../hooks/useBreadcrumb'
+import { useBreadcrumb } from './BreadcrumbService'
 
 const { breadcrumbs, handerClick } = useBreadcrumb()
 

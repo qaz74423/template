@@ -1,5 +1,5 @@
 import { RouteRecordRaw } from "vue-router";
-import Layout from "../layout/Layout.vue";
+import Layout from "../layout";
 import { UserOutlined } from "@ant-design/icons-vue";
 import { constRoutes } from "./const-route";
 // 自动导入modeles

@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ref, Ref, inject } from "vue";
 import { SettingOutlined, CloseOutlined } from "@ant-design/icons-vue";
-import { InjectIsTabs, InjectShowFooter, InjectTransition } from '../context'
+import { InjectIsTabs, InjectShowFooter, InjectTransition } from '../../context'
 const isTabs = inject(InjectIsTabs)
 const showFooter = inject(InjectShowFooter)
 const transition = inject(InjectTransition)

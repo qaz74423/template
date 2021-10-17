@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { useTab } from "../hooks/useTab";
+import { useTab } from "./TabService";
 
 const { tabs, activeKey, onEdit, tabChange } = useTab();
 </script>

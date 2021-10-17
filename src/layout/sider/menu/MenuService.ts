@@ -2,7 +2,7 @@ import { useRouter, useRoute } from "vue-router";
 import type { RouteRecordRaw } from "vue-router";
 
 import { inject, computed, ComputedRef } from "vue";
-import { InjectIsLogin } from "../context";
+import { InjectIsLogin } from "../../../context";
 export function useMenu() {
   const router = useRouter();
   const route = useRoute();

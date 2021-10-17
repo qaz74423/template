@@ -21,12 +21,12 @@
 
 <script lang="ts" setup>
 
-import ContentVue from "./Content.vue";
-import HeaderVue from "./Header.vue";
-import SiderVue from "./Sider.vue";
-import TabVue from "./Tab.vue";
-import SettingVue from "./Setting.vue";
-import { useLayout } from "../hooks/useLayout";
+import ContentVue from "./content/Content.vue";
+import HeaderVue from "./header/Header.vue";
+import SiderVue from "./sider/Sider.vue";
+import TabVue from "./tab/Tab.vue";
+import SettingVue from "./setting/Setting.vue";
+import { useLayout } from "./LayoutService";
 
 const { showFooter, isTabs } = useLayout();
 </script>

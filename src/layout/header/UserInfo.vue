@@ -1,10 +1,10 @@
 <script lang="ts" setup>
 import { UserOutlined } from "@ant-design/icons-vue";
 import { useRouter } from 'vue-router'
-import { getStorage } from '../utils/auth'
-import type { UserType } from '../api/user'
+import { getStorage } from '../../utils/auth'
+import type { UserType } from '../../api/user'
 import { inject } from "vue-demi";
-import { InjectIsLogin } from '../context'
+import { InjectIsLogin } from '../../context'
 
 const router = useRouter();
 
