@@ -64,13 +64,14 @@ const route: RouteRecordRaw = {
       },
       children: [
         {
-          path: "log",
-          name: "log",
+          path: "blogs",
+          name: "Blogs",
           component: () =>
-            import("../../views/study/children/ipbp/children/Log.vue"),
+            import("../../views/study/children/ipbp/children/blogs"),
           meta: {
-            title: "log",
-            icon: FileUnknownOutlined,
+            title: "blogs",
+            icon: FileUnknownTwoTone,
+            auth: true,
           },
         },
       ],

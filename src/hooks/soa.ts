@@ -17,11 +17,13 @@ export function createService<T>(service: Service<T>) {
 
   const serviceRigister = (...args: any) => {
     const instance = service(...args);
+    // core
     provide(serviceToken, instance);
     return instance;
   };
 
   const serviceDiscovery = () => {
+    // core
     const instance = inject(serviceToken);
     if (!instance) throw Error(`[${service.name}-${serviceToken}]-服务未注册`);
     return instance;
