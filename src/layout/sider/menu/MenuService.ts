@@ -15,7 +15,8 @@ export function menuService() {
       (item: RouteRecordRaw) => item.name === "Layout"
     )?.children as RouteRecordRaw[];
 
-    return Object.assign(cache);
+    // 返回一个通用深拷贝的router，暂时解决问题
+    return JSON.parse(JSON.stringify(cache));
   };
 
   // 过滤路由
