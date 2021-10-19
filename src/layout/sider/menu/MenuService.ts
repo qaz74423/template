@@ -1,5 +1,6 @@
 import { useRouter, useRoute } from "vue-router";
 import type { RouteRecordRaw } from "vue-router";
+import { cloneDeep } from "lodash";
 
 import { computed, ComputedRef } from "vue";
 import { appService } from "../../../AppService";
@@ -16,7 +17,7 @@ export function menuService() {
     )?.children as RouteRecordRaw[];
 
     // 返回一个通用深拷贝的router，暂时解决问题
-    return JSON.parse(JSON.stringify(cache));
+    return cloneDeep(cache);
   };
 
   // 过滤路由
@@ -33,16 +34,6 @@ export function menuService() {
   // foreach的异步问题！！！！！！！
   //存在引用值的问题,好像把过滤前的数组给改变了
   const filter = (routes: RouteRecordRaw[]): void => {
-    // routes.map((item, index) => {
-    //   if (item.meta?.auth) {
-    //     // 如果需要认证则删除
-    //     routes.splice(index, 1);
-    //   }
-    //   if (item.children) {
-    //     // 如果存在children
-    //     return filter(item.children);
-    //   }
-    // });
     for (const route of routes) {
       if (route.meta?.auth) {
         routes.splice(routes.indexOf(route), 1);
@@ -53,10 +44,7 @@ export function menuService() {
       }
     }
   };
-  console.log("过滤前的menu-----");
-  console.log(getAllMenuRouter());
 
-  console.log("是否登录？：", isLogin.value);
   const getMenuRouter = () => {
     const r = getAllMenuRouter();
     if (!isLogin.value) {
