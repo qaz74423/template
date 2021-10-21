@@ -22,7 +22,7 @@ function BlogsService() {
     { align: "center", title: "status", dataIndex: "status" },
     { align: "center", title: "actions", slots: { customRender: "handler" } },
   ];
-  const adapter = async () => (await fetchRecords()).data.data.records;
+  const adapter = async () => (await fetchRecords(null)).data.records;
 
   const [request, records, loading] = useXhr(adapter, []);
 
@@ -33,8 +33,7 @@ function BlogsService() {
 
     try {
       hide = message.loading("正在删除中 。。。");
-      const { msg, code } = (await deleteRecords(isSelect ? store.value : [id]))
-        .data;
+      const { msg, code } = await deleteRecords(isSelect ? store.value : [id]);
       console.log(msg, code);
 
       message[code == 200 ? "success" : "error"](msg);

@@ -1,7 +1,7 @@
-export type HttpMessage = {
-  msg: string;
-  code: number;
-};
+// export type HttpMessage = {
+//   msg: string;
+//   code: number;
+// };
 
 export interface FetchRecordsPayload {}
 // 返回的字段类型
@@ -30,7 +30,7 @@ export interface Record {
 }
 
 export class Apis {
-  static readonly Prefix = "";
+  static readonly Prefix = "http://localhost:8082";
   static readonly FetchRecords = `${Apis.Prefix}/blogs`;
   static readonly DeleteRecords = `${Apis.Prefix}/blog/delete`;
 }
