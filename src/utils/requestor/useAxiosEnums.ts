@@ -5,5 +5,5 @@ export enum ContentType {
 }
 
 export enum RequestInterfaceAddress {
-  BLOG = "",
+  BLOG = "http://localhost:8082",
 }

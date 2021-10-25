@@ -1,3 +1,7 @@
 {
-  "recommendations": ["johnsoncodehk.volar"]
+    "prettier.semi": false,
+    "prettier.printWidth": 120,
+    "prettier.singleQuote": true,
+    "prettier.trailingComma": "all",
+    "volar.autoCompleteRefs": false
 }

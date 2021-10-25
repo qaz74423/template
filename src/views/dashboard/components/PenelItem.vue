@@ -1,55 +1,59 @@
 <script setup lang="ts">
-import { GithubOutlined } from "@ant-design/icons-vue";
-import { inject } from "@vue/runtime-core";
-// import { InjectIsMob } from '../../../context'
-import { appService } from '../../../AppService'
-// const isMob = inject(InjectIsMob)
-const { isMob } = appService.serviceDiscovery()
-const { item } = defineProps({
-    item: {
-        type: Object,
-        default: {}
-    }
-})
-
+import { appService } from "../../../AppService";
+type PenelType = {
+  icon: any;
+  text: string;
+  number: string;
+  bgcolor: string;
+};
+const { isMob } = appService.serviceDiscovery();
+// const { item } = defineProps({
+//   item: {
+//     type: Object,
+//     default: {},
+//   },
+// });
+const props = defineProps<{ item: PenelType }>();
 </script>
 
 <template>
-    <a-card class="card">
-        <a-row type="flex" :justify="isMob ? 'center' : 'space-between'">
-            <a-col>
-                <component class="icon" :is="item.icon" />
-            </a-col>
-            <a-col v-if="!isMob">
-                <div class="text">{{ item.text }}</div>
-                <div class="number">{{ item.number }}</div>
-            </a-col>
-        </a-row>
-    </a-card>
+  <a-card class="card" :style="{ backgroundColor: props.item.bgcolor }">
+    <a-row type="flex" :justify="isMob ? 'center' : 'space-between'">
+      <a-col>
+        <component class="icon" :is="props.item.icon" />
+      </a-col>
+      <a-col v-if="!isMob">
+        <div class="text">{{ props.item.text }}</div>
+        <div class="number">{{ props.item.number }}</div>
+      </a-col>
+    </a-row>
+  </a-card>
 </template>
 <style scoped lang="scss">
 .card {
-    border-radius: 8px;
-    cursor: pointer;
-    backdrop-filter: blur(5px);
-    box-shadow: 0 8px 12px rgba(255, 255, 255, 0.3);
-    &:hover .icon {
-        background-color: rgb(24, 144, 255);
-        color: #fff;
-        transition: all 0.8s;
-        border-radius: 8px;
-    }
-    .icon {
-        font-size: 70px;
-    }
-    .text {
-        line-height: 18px;
-        color: rgba(0, 0, 0, 0.45);
-        font-size: 16px;
-        margin-bottom: 12px;
-    }
-    .number {
-        font-size: 20px;
-    }
+  border-radius: 8px;
+  cursor: pointer;
+  //   backdrop-filter: blur(5px);
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+  background-color: rgb(24, 144, 255);
+  transition: all 0.5s ease-in-out;
+  &:hover {
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.5);
+    transform: translateY(-3px);
+  }
+  .icon {
+    font-size: 70px;
+    color: #fff;
+  }
+  .text {
+    line-height: 18px;
+    color: #fff;
+    font-size: 16px;
+    margin-bottom: 12px;
+  }
+  .number {
+    color: #fff;
+    font-size: 25px;
+  }
 }
 </style>

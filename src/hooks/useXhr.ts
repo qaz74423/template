@@ -13,6 +13,7 @@ export function useXhr<T>(
     try {
       ready.value = true;
       const promiseResult = await adapter();
+
       result.value = promiseResult;
     } catch (e) {
       error.value = e as Error;
@@ -20,6 +21,7 @@ export function useXhr<T>(
       ready.value = false;
     }
   };
+
   if (immediate) execute();
 
   return [execute, result, ready, { error }] as const;
