@@ -9,8 +9,10 @@ export function PartternService() {
     const showCode = ref(false);
 
     // 跳转github
-    const redirect = () => {
-      window.open(import.meta.env.VITE_GITHUB_PATH as string, "_blank");
+    const redirect = (
+      path: string = import.meta.env.VITE_GITHUB_PATH as string
+    ) => {
+      window.open(path, "_blank");
     };
     return {
       _Event,

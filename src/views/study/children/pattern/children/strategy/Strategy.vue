@@ -69,7 +69,7 @@ watch(
       </Row>
 
       <template class="ant-card-actions" #actions>
-        <github-outlined key="setting" @click="redirect" />
+        <github-outlined key="setting" @click="redirect()" />
         <edit-outlined key="code" @click="showCode = !showCode" />
         <ellipsis-outlined key="ellipsis" />
       </template>
