@@ -5,7 +5,7 @@ import { deleteRecords, fetchRecords } from "./Apis";
 import { useXhr } from "../../../../../../hooks/useXhr";
 import { message } from "ant-design-vue";
 
-function BlogsService() {
+function RecordsService() {
   const columns: ColumnProps[] = [
     {
       align: "center",
@@ -28,12 +28,12 @@ function BlogsService() {
 
   const { store, stockSize, hasStocks, rowSelection } = useChosen();
 
-  const handleDelete = async (isSelect: boolean, id: number) => {
+  const handleDelete = async (isSelect: boolean, id?: number) => {
     let hide;
 
     try {
       hide = message.loading("正在删除中 。。。");
-      const { msg, code } = await deleteRecords(isSelect ? store.value : [id]);
+      const { msg, code } = await deleteRecords(isSelect ? store.value : [id!]);
       console.log(msg, code);
 
       message[code == 200 ? "success" : "error"](msg);
@@ -61,4 +61,4 @@ function BlogsService() {
   };
 }
 
-export const blogsService = createService(BlogsService);
+export const recordsService = createService(RecordsService);

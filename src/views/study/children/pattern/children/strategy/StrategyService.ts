@@ -1,32 +1,19 @@
-import { PartternService } from "../../PartternService";
-const { commenService } = PartternService();
+import {
+  basePanelService,
+  IPattern,
+} from "@components/base-panel/BasePanelService";
+import Example from "./Example.vue";
+import { _Event } from "./Event";
 
-export type strategyType = "S" | "A" | "B" | "C";
+const strategy: IPattern = {
+  _Event,
+  title: "策略模式",
+  describe:
+    "在策略模式（Strategy Pattern）中，一个类的行为或其算法可以在运行时更改。这种类型的设计模式属于行为型模式。在策略模式中，我们创建表示各种策略的对象和一个行为随着策略对象改变而改变的 context 对象。策略对象改变 context 对象的执行算法。",
+  exampleComponent: Example,
+};
 
 export function StrategyService() {
-  function _Event() {
-    const strategies = {
-      S: (salary: number) => salary * 4,
-      A: (salary: number) => salary * 3,
-      B: (salary: number) => salary * 2,
-      C: (salary: number) => salary * 1,
-    };
-
-    const calculateBonus = (level: strategyType, salary: number) =>
-      strategies[level](salary);
-
-    return {
-      strategies,
-      calculateBonus,
-    };
-  }
-
-  const { showCode, code, redirect } = commenService(_Event);
-
-  return {
-    _Event,
-    showCode,
-    code,
-    redirect,
-  };
+  // 注册Service实例
+  basePanelService.serviceRigister(strategy);
 }

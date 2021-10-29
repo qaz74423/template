@@ -1,40 +1,16 @@
-import { message } from "ant-design-vue";
-import { PartternService } from "../../PartternService";
-const { commenService } = PartternService();
+import {
+  basePanelService,
+  IPattern,
+} from "@components/base-panel/BasePanelService";
+import { _Event } from "./Event";
+import Example from "./Example.vue";
+const proxy: IPattern = {
+  _Event,
+  title: "代理模式",
+  describe:
+    "代理模式给某一个对象提供一个代理对象，并由代理对象控制对原对象的引用。通俗的来讲代理模式就是我们生活中常见的中介。",
+  exampleComponent: Example,
+};
 export function ProxyService() {
-  function _Event() {
-    const sendFile = (files: any) => {
-      message.success(files + "send success");
-    };
-
-    const proxySendFile = (() => {
-      const caches: any[] = [];
-      let timer: number | undefined;
-
-      return (file: any, wait: number) => {
-        caches.push(file);
-        if (timer) return;
-
-        timer = setTimeout(() => {
-          sendFile(caches);
-          clearInterval(timer);
-          timer = undefined;
-          caches.length = 0;
-        }, wait) as any;
-      };
-    })();
-
-    return {
-      sendFile,
-      proxySendFile,
-    };
-  }
-  const { code, showCode, redirect } = commenService(_Event);
-
-  return {
-    _Event,
-    code,
-    showCode,
-    redirect,
-  };
+  basePanelService.serviceRigister(proxy);
 }

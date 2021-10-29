@@ -1,3 +1,3 @@
-import Blogs from "./Blogs.vue";
+import index from "./index.vue";
 
-export default Blogs;
+export default index;

@@ -23,16 +23,17 @@ export function LayoutService() {
       isMob.value = false;
     }
   };
+
+  //有问题，得改
   const checkIsMobileDebounce = useDebounceFn(checkIsMobile, 500);
   const addResizeFn = () => {
+    checkIsMobileDebounce();
     window.addEventListener("resize", checkIsMobileDebounce);
   };
   const removeResizeFn = () => {
     window.removeEventListener("resize", checkIsMobileDebounce);
   };
-  onMounted(() => {
-    addResizeFn();
-  });
+  addResizeFn();
   onUnmounted(() => {
     removeResizeFn();
   });

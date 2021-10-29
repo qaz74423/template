@@ -1,68 +1,16 @@
-import { message } from "ant-design-vue";
-import { PartternService } from "../../PartternService";
-const { commenService } = PartternService();
+import {
+  basePanelService,
+  IPattern,
+} from "@components/base-panel/BasePanelService";
+import { _Event } from "./Event";
+import Example from "./Example.vue";
+const observer: IPattern = {
+  _Event,
+  title: "观察者模式",
+  describe:
+    "观察者模式就是一对多事件，当事件发生的时候通知到多个观察者，所有观察者进行对应的更新操作update执行事件操作。",
+  exampleComponent: Example,
+};
 export function ObserverService() {
-  function _Event() {
-    // 主体
-    class Subject {
-      private state: number | undefined;
-
-      private observers: Array<Observer> | undefined;
-
-      constructor() {
-        this.state = 0;
-        this.observers = [];
-      }
-
-      getState() {
-        return this.state;
-      }
-
-      setState(state: number) {
-        this.state = state;
-        // 通知
-        this.notifyAllObservers();
-      }
-
-      notifyAllObservers() {
-        this.observers?.forEach((item) => {
-          item.update();
-        });
-      }
-
-      attch(observer: Observer) {
-        this.observers?.push(observer);
-      }
-    }
-
-    //   观察者
-    class Observer {
-      private name: string | undefined;
-
-      private subject: Subject | undefined;
-
-      constructor(name: string, subject: Subject) {
-        this.name = name;
-        this.subject = subject;
-        this.subject.attch(this);
-      }
-
-      update() {
-        message.info(this.name + " 更新, state: " + this.subject?.getState());
-      }
-    }
-
-    return {
-      Subject,
-      Observer,
-    };
-  }
-  const { showCode, redirect, code } = commenService(_Event);
-
-  return {
-    _Event,
-    showCode,
-    redirect,
-    code,
-  };
+  basePanelService.serviceRigister(observer);
 }

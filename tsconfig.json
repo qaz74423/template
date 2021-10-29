@@ -4,7 +4,7 @@
     "useDefineForClassFields": true,
     "module": "esnext",
     "moduleResolution": "node",
-    "strict": true,
+    "strict": false,
     "jsx": "preserve",
     "sourceMap": true,
     "resolveJsonModule": true,
@@ -17,7 +17,8 @@
       "@hooks*":["./src/hooks*"],
       "@components*":["./src/components*"],
       "@utils*":["./src/utils*"],
-      "@view*":["./src/views*"]
+      "@view*":["./src/views*"],
+      "@AppService":["./src/AppService.ts"]
     }
   },
   "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue"]

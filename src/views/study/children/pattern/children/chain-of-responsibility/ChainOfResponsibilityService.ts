@@ -1,85 +1,17 @@
-import { message } from "ant-design-vue";
-import { ref } from "vue";
-import { PartternService } from "../../PartternService";
-import { isFunction } from "@utils/is";
-const { commenService } = PartternService();
-
+import {
+  basePanelService,
+  IPattern,
+} from "@components/base-panel/BasePanelService";
+import { _Event } from "./Event";
+import Example from "./Example.vue";
+const chainOfResponsibility: IPattern = {
+  _Event,
+  title: "责任链模式",
+  describe:
+    "责任链（Chain of Responsibility）模式的定义：为了避免请求发送者与多个请求处理者耦合在一起，将所有请求的处理者通过前一对象记住其下一个对象的引用而连成一条链；当有请求发生时，可将请求沿着这条链传递，直到有对象处理它为止。",
+  exampleComponent: Example,
+  originArticle: "https://zhuanlan.zhihu.com/p/163843181",
+};
 export function ChainOfResponsibilityService() {
-  function _Event() {
-    class Middleware {
-      private cache: Function[] | undefined;
-      private middlewares: Function[] | undefined;
-      private events: any | undefined;
-
-      constructor() {
-        this.cache = [];
-        this.middlewares = [];
-      }
-
-      /**
-       * @description 链式调用,注册中间件
-       */
-      use(...args: Function[]): Middleware {
-        args.forEach((item) => {
-          if (isFunction(item)) {
-            this.cache?.push(item);
-          }
-        });
-
-        return this;
-      }
-
-      /**
-       * @description 每个中间件只有两个形参
-       */
-      next(params: any) {
-        while (this.middlewares?.length) {
-          const ware = this.middlewares.shift();
-          // 什么写法？？
-          ware?.call(this, params, this.next.bind(this));
-        }
-      }
-
-      execute(params: any) {
-        this.middlewares = this.cache?.map((fn) => fn); //copy
-        this.next(params);
-      }
-
-      /**
-       * @description 注册事件
-       */
-      on(name: string, callback: Function) {
-        if (isFunction(callback)) {
-          this.events[name] = callback;
-        } else {
-          throw "事件回调必须为函数";
-        }
-      }
-
-      /**
-       * @description 触发事件
-       */
-      emit(name: string, params: any[]) {
-        if (this.events[name]) {
-          let callback = this.events[name];
-          callback.call(this, params);
-        } else {
-          throw "没有注册这个事件";
-        }
-      }
-    }
-
-    return {
-      Middleware,
-    };
-  }
-
-  const { code, showCode, redirect } = commenService(_Event);
-
-  return {
-    _Event,
-    code,
-    showCode,
-    redirect,
-  };
+  basePanelService.serviceRigister(chainOfResponsibility);
 }

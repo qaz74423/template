@@ -1,12 +1,12 @@
-import { Apis, Data } from "./Shared";
+import { Apis, Data, Record } from "./Shared";
 
-import { useRequestor } from "../../../../../../utils/requestor/useRequestor";
+import { useRequestor } from "@utils/requestor/useRequestor";
 
-export async function fetchRecords(payload: any) {
+export async function fetchRecords(payload: Record) {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
       resolve(1);
-    }, 1000);
+    }, 500);
   }).then(() => {
     return useRequestor.request<HttpResponse<Data>>({
       url: Apis.FetchRecords,
@@ -29,4 +29,13 @@ export async function deleteRecords(ids: number[]) {
         }, 1000);
       });
     });
+}
+
+// 一个接口两用，很恶心的接口
+export async function editRecords(record: Record) {
+  return useRequestor.request<HttpMessage>({
+    url: Apis.EditRecords,
+    data: record,
+    method: "POST",
+  });
 }

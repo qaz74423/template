@@ -14,6 +14,7 @@ export default defineConfig(({ command, mode }) => {
         "@utils": resolve(__dirname, "./src/utils"),
         "@hooks": resolve(__dirname, "./src/hooks"),
         "@components": resolve(__dirname, "./src/components"),
+        "@AppService": resolve(__dirname, "./src/AppService.ts"),
       },
     },
   };

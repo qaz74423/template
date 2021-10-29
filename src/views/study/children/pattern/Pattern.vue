@@ -1,7 +1,8 @@
 <script setup lang="ts">
 import PublishSubscribe from "./children/publish-subscribe/PublishSubscribe.vue";
 import Strategy from "./children/strategy/Strategy.vue";
-import { appService } from "../../../../AppService";
+
+import { appService } from "@AppService";
 import Singleton from "./children/singleton/Singleton.vue";
 import Observer from "./children/observer/Observer.vue";
 import Factory from "./children/factory/Factory.vue";
