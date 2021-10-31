@@ -8,7 +8,7 @@ const { Pet } = _Event();
 const type = ref("");
 const name = ref("");
 const buy = () => {
-  new Pet(type.value, name.value);
+  new Pet(type.value as any, name.value);
 };
 </script>
 <template>

@@ -14,10 +14,12 @@ export function _Event() {
       },
     };
 
+    console.log(typeof pets);
+
     return class {
-      constructor(type: string, name: string) {
+      constructor(type: keyof typeof pets, name: string) {
         try {
-          return pets[type](name);
+          pets[type](name);
         } catch (e) {
           message.error("no pet");
         }

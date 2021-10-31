@@ -14,7 +14,6 @@ const { transition } = appService.serviceDiscovery();
 </template>
 <style lang="scss" scoped>
 .content {
-  // margin: 16px 16px 0;
   padding: 16px 16px 0;
   overflow: initial;
   overflow-x: hidden;

@@ -17,5 +17,14 @@ export default defineConfig(({ command, mode }) => {
         "@AppService": resolve(__dirname, "./src/AppService.ts"),
       },
     },
+
+    // 不知道这样引和main.ts引的区别，不是很好用
+    // css: {
+    //   preprocessorOptions: {
+    //     scss: {
+    //       additionalData: '@import "./src/assets/scss/color.scss";',
+    //     },
+    //   },
+    // },
   };
 });

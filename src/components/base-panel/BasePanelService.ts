@@ -1,6 +1,5 @@
 import { ref, Component } from "vue";
 import { createService } from "@hooks/soa";
-
 export interface IPattern {
   _Event: Function;
   code?: string;
@@ -9,6 +8,7 @@ export interface IPattern {
   originArticle?: string;
   exampleComponent?: Component;
 }
+
 function BasePanelService(pattern: IPattern) {
   // 代码字符串
   const code = pattern.code ? pattern.code : pattern._Event.toString();

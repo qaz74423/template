@@ -6,6 +6,10 @@ import {
   LikeOutlined,
   SoundOutlined,
 } from "@ant-design/icons-vue";
+
+// 引入ref类型全局颜色样式---测试10.30
+import { appService } from "@AppService";
+const { color } = appService.serviceDiscovery();
 type PenelType = {
   icon: any;
   text: string;
@@ -17,25 +21,25 @@ const PanelList: PenelType[] = [
     icon: GithubOutlined,
     text: "New Visits",
     number: "122200",
-    bgcolor: "#2b982b",
+    bgcolor: color.value.success,
   },
   {
     icon: SoundOutlined,
     text: "Messages",
     number: "81252",
-    bgcolor: "#00b0e4",
+    bgcolor: color.value.info,
   },
   {
     icon: PayCircleOutlined,
     text: "Purcases",
     number: "9000",
-    bgcolor: "#ff9600",
+    bgcolor: color.value.warn,
   },
   {
     icon: LikeOutlined,
     text: "Goods",
     number: "13600",
-    bgcolor: "#FF7875",
+    bgcolor: color.value.error,
   },
 ];
 </script>

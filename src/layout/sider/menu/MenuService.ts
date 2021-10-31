@@ -8,7 +8,7 @@ export function menuService() {
   const router = useRouter();
   const route = useRoute();
   // 是否登录
-  const { isLogin } = appService.serviceDiscovery();
+  const { isLogin, color, theme } = appService.serviceDiscovery();
 
   //   取所有菜单项路由
   const getAllMenuRouter = (): RouteRecordRaw[] => {
@@ -77,5 +77,9 @@ export function menuService() {
 
     handleClick,
     selectedKeys,
+
+    // --
+    color,
+    theme,
   };
 }

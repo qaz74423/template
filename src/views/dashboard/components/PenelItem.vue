@@ -33,9 +33,8 @@ const props = defineProps<{ item: PenelType }>();
 .card {
   border-radius: 8px;
   cursor: pointer;
-  //   backdrop-filter: blur(5px);
+  backdrop-filter: blur(5px);
   box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
-  background-color: rgb(24, 144, 255);
   transition: all 0.5s ease-in-out;
   &:hover {
     box-shadow: 0 8px 12px rgba(0, 0, 0, 0.5);
@@ -50,10 +49,12 @@ const props = defineProps<{ item: PenelType }>();
     color: #fff;
     font-size: 16px;
     margin-bottom: 12px;
+    user-select: none;
   }
   .number {
     color: #fff;
     font-size: 25px;
+    user-select: none;
   }
 }
 </style>

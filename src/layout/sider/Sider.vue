@@ -1,43 +1,52 @@
 <script lang="ts" setup>
+import { Drawer, LayoutSider } from "ant-design-vue";
 import MenuVue from "./menu/Menu.vue";
 import SiteLogoVue from "./SiteLogo.vue";
 import { appService } from "../../AppService";
-const { collapsed, isMob } = appService.serviceDiscovery();
+import { computed } from "vue-demi";
+const { collapsed, isMob, color, theme } = appService.serviceDiscovery();
+
+// // 样式
+// // 抽屉样式--适配sider的theme
+const drawerStyle = computed(() => {
+  return {
+    backgroundColor: theme.value == "dark" ? color.value.sider : "#fff",
+  };
+});
+
+const width = 240;
 </script>
 
 <template>
-  <a-drawer
+  <!-- 宽度低时，用抽屉 -->
+  <Drawer
     v-if="isMob"
     placement="left"
     :closable="false"
     :visible="!collapsed"
     @close="() => (collapsed = true)"
-    width="240"
     class="layout-sider-drawer"
+    :width="width"
+    :body-style="{ padding: '0px' }"
+    :drawer-style="drawerStyle"
   >
     <SiteLogoVue />
     <MenuVue />
-  </a-drawer>
-  <a-layout-sider
+  </Drawer>
+
+  <!-- 宽度高时用Sider -->
+  <LayoutSider
     v-else
     collapsible
     :trigger="null"
     v-model:collapsed="collapsed"
-    width="240"
+    :width="width"
+    :theme="theme"
+    style="box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.1)"
   >
     <SiteLogoVue />
     <MenuVue />
-  </a-layout-sider>
+  </LayoutSider>
 </template>
 
-<style lang="scss">
-// 左边抽屉颜色、样式
-.layout-sider-drawer {
-  .ant-drawer-wrapper-body {
-    background-color: #001529;
-  }
-  .ant-drawer-body {
-    padding: 0px;
-  }
-}
-</style>
+<style lang="scss" scoped></style>

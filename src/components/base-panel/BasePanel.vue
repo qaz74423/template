@@ -8,6 +8,7 @@ import {
 import HighLightMaker from "@components/HighLightMaker.vue";
 import { basePanelService } from "./BasePanelService";
 
+// 发现被注册的Service
 const { code, showCode, pattern, redirect } =
   basePanelService.serviceDiscovery();
 </script>

@@ -8,12 +8,13 @@ import Observer from "./children/observer/Observer.vue";
 import Factory from "./children/factory/Factory.vue";
 import Proxy from "./children/proxy/Proxy.vue";
 import ChainOfResponsibility from "./children/chain-of-responsibility/ChainOfResponsibility.vue";
+import Test from "./children/test/Test.vue";
 
 const { isMob } = appService.serviceDiscovery();
 </script>
 
 <template>
-  <div :style="{ columns: isMob ? 1 : 2, columnGap: 8 }">
+  <div :style="{ columns: 1, columnGap: 8 }">
     <div class="item"><Strategy /></div>
     <div class="item"><PublishSubscribe /></div>
     <div class="item"><Singleton /></div>
@@ -21,6 +22,7 @@ const { isMob } = appService.serviceDiscovery();
     <div class="item"><Factory /></div>
     <div class="item"><Proxy /></div>
     <div class="item"><ChainOfResponsibility /></div>
+    <div class="item"><Test /></div>
   </div>
 </template>
 <style lang="scss" scoped>
