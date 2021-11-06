@@ -2,7 +2,7 @@ import { ref } from "vue";
 import { createService } from "./hooks/soa";
 type RouterFadeType = "fade-right" | "fade-left";
 /**
- * @description 注册全局变量的地方
+ * @description 注册全局状态的地方
  */
 function AppService() {
   // 是否折叠
@@ -40,6 +40,7 @@ function AppService() {
     isLogin,
     // --10.30
     color,
+    // --10.31
     theme,
   };
 }

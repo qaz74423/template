@@ -14,8 +14,6 @@ export function _Event() {
       },
     };
 
-    console.log(typeof pets);
-
     return class {
       constructor(type: keyof typeof pets, name: string) {
         try {

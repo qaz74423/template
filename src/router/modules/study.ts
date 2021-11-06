@@ -19,40 +19,6 @@ const route: RouteRecordRaw = {
         title: "pattern",
         icon: FileUnknownOutlined,
       },
-      // children: [
-      //   {
-      //     path: "strategy",
-      //     name: "Strategy",
-      //     component: () =>
-      //       import("../../views/study/children/pattern/children/strategy"),
-      //     meta: {
-      //       title: "strategy",
-      //       icon: FileUnknownTwoTone,
-      //     },
-      //   },
-      //   {
-      //     path: "publish-subscribe",
-      //     name: "PublishSubscribe",
-      //     component: () =>
-      //       import(
-      //         "../../views/study/children/pattern/children/publish-subscribe"
-      //       ),
-      //     meta: {
-      //       title: "publish-subscribe",
-      //       icon: FileUnknownTwoTone,
-      //     },
-      //   },
-      //   {
-      //     path: "mvc",
-      //     name: "MVC",
-      //     component: () =>
-      //       import("@views/study/children/pattern/children/MVC/MVC.vue"),
-      //     meta: {
-      //       title: "mvc",
-      //       icon: FileUnknownTwoTone,
-      //     },
-      //   },
-      // ],
     },
     {
       path: "ipbp",
@@ -75,6 +41,16 @@ const route: RouteRecordRaw = {
           },
         },
       ],
+    },
+    {
+      path: "typescript",
+      name: "Typescript",
+      component: () =>
+        import("@views/study/children/typescript/TypeScript.vue"),
+      meta: {
+        title: "typescript",
+        icon: FileUnknownOutlined,
+      },
     },
   ],
 };

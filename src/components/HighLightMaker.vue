@@ -17,6 +17,6 @@ watch(
 
 <template>
   <pre>
-        <code ref="codeRef">{{props.code}}</code>
-    </pre>
+    <code ref="codeRef">{{props.code}}</code>
+  </pre>
 </template>

@@ -22,7 +22,9 @@ const { isMob } = appService.serviceDiscovery();
     <div class="item"><Factory /></div>
     <div class="item"><Proxy /></div>
     <div class="item"><ChainOfResponsibility /></div>
-    <div class="item"><Test /></div>
+
+    <!-- 测试页面，先保留 -->
+    <!-- <div class="item"><Test /></div> -->
   </div>
 </template>
 <style lang="scss" scoped>

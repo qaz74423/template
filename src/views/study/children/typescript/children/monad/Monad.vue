@@ -1,10 +1,9 @@
 <script lang="ts" setup>
-//  测试页面，先保留
-import { TestService } from "./TestService";
+import { MonadService } from "./MonadService";
 import BasePanel from "@components/base-panel/BasePanel.vue";
-
-TestService();
+MonadService();
 </script>
+
 <template>
   <BasePanel />
 </template>

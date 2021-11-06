@@ -1,10 +1,9 @@
 <script lang="ts" setup>
-//  测试页面，先保留
-import { TestService } from "./TestService";
+import { FunctionalService } from "./FunctionalSerivce";
 import BasePanel from "@components/base-panel/BasePanel.vue";
-
-TestService();
+FunctionalService();
 </script>
+
 <template>
   <BasePanel />
 </template>

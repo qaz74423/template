@@ -60,17 +60,23 @@ const onClose = () => {
 <style lang="scss" scoped>
 .icon {
   position: absolute;
-  top: 300px;
+  top: 50%;
   right: 260px;
-  font-size: 28px;
-  width: 40px;
-  height: 40px;
-  line-height: 40px;
+  font-size: 25px;
+  width: 30px;
+  height: 30px;
+  line-height: 30px;
   text-align: center;
-  background-color: #1890ff;
-  color: #fff;
+  background-color: #fff;
+  color: #1890ff;
   cursor: pointer;
   border-radius: 6px 0 0 6px;
+  transition: all 0.2s linear;
+  box-shadow: -2px 0px 5px rgba(0, 0, 0, 0.3);
+  &:hover {
+    background-color: #1890ff;
+    color: #fff;
+  }
 }
 .setting-item {
   margin-bottom: 25px;
