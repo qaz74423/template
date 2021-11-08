@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { Tabs, TabPane } from "ant-design-vue";
+import { Tabs } from "ant-design-vue";
 import { tabService } from "./TabService";
 
 const { tabs, activeKey, onEdit, tabChange } = tabService();
@@ -15,12 +15,12 @@ const { tabs, activeKey, onEdit, tabChange } = tabService();
       @change="tabChange"
       hideAdd
     >
-      <TabPane
+      <Tabs.TabPane
         v-for="(tab, index) in tabs"
         :key="tab.path"
         :tab="tab.title"
         :closable="tabs.length > 1 && index != tabs.length - 1"
-      ></TabPane>
+      ></Tabs.TabPane>
     </Tabs>
   </div>
 </template>

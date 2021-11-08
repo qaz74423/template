@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { EmployeeRepository, Maybe } from "./Event";
-import { Form, FormItem, Input, Button, message } from "ant-design-vue";
+import { Form, Input, Button, message } from "ant-design-vue";
 import { ref } from "vue-demi";
 
 // 拿到repository
@@ -26,11 +26,11 @@ const findEmployeeButton = () => {
 
 <template>
   <Form layout="inline">
-    <FormItem label="employee ID">
+    <Form.Item label="employee ID">
       <Input v-model:value="id" />
-    </FormItem>
-    <FormItem>
+    </Form.Item>
+    <Form.Item>
       <Button @click="findEmployeeButton">Find supervisor`s name</Button>
-    </FormItem>
+    </Form.Item>
   </Form>
 </template>

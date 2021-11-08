@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 import { reactive } from "vue";
-import { Row, Input, Button, Form, FormItem, message } from "ant-design-vue";
+import { Row, Input, Button, Form, message } from "ant-design-vue";
 import { _Event } from "./Event";
 
 const { Middleware } = _Event();
@@ -77,17 +77,17 @@ const request = () => {
 <template>
   <Row justify="center">
     <Form v-model:value="fromState">
-      <FormItem label="名字">
+      <Form.Item label="名字">
         <Input v-model:value="fromState.data.name" />
-      </FormItem>
+      </Form.Item>
 
-      <FormItem label="年龄">
+      <Form.Item label="年龄">
         <Input v-model:value="fromState.data.age" />
-      </FormItem>
+      </Form.Item>
 
-      <FormItem>
+      <Form.Item>
         <Button @click="request">请求</Button>
-      </FormItem>
+      </Form.Item>
     </Form>
   </Row>
 </template>

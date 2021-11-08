@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { MenuItem as AMenuItem, SubMenu } from "ant-design-vue";
+import { Menu } from "ant-design-vue";
 const { item } = defineProps({
   item: {
     type: Object,
@@ -9,14 +9,14 @@ const { item } = defineProps({
 </script>
 
 <template>
-  <AMenuItem v-if="!item.children" :key="item.path">
+  <Menu.Item v-if="!item.children" :key="item.path">
     <template #icon>
       <component :is="item.meta?.icon" />
     </template>
     <span class="nav-text">{{ item.meta?.title }}</span>
-  </AMenuItem>
+  </Menu.Item>
 
-  <SubMenu v-else :key="item.path">
+  <Menu.SubMenu v-else :key="item.path">
     <template #icon>
       <component :is="item.meta?.icon" />
     </template>
@@ -24,5 +24,5 @@ const { item } = defineProps({
 
     <!-- 试试看能不能解决性能问题，好像有if 和 for 混用的问题 -->
     <MenuItem v-for="it in item.children" :key="it" :item="it"></MenuItem>
-  </SubMenu>
+  </Menu.SubMenu>
 </template>

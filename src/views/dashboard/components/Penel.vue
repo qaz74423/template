@@ -1,5 +1,6 @@
 <script lang="ts" setup>
 import PenelItem from "./PenelItem.vue";
+import { Row, Col } from "ant-design-vue";
 import {
   GithubOutlined,
   PayCircleOutlined,
@@ -45,16 +46,16 @@ const PanelList: PenelType[] = [
 </script>
 
 <template>
-  <a-row type="flex" justify="space-between" :gutter="[16, 16]">
-    <a-col
+  <Row type="flex" justify="space-between" :gutter="[16, 16]">
+    <Col
       v-for="item in PanelList"
-      :key="item"
+      :key="item as any"
       :xl="6"
       :md="12"
       :sm="12"
       :xs="12"
     >
       <PenelItem :item="item"></PenelItem>
-    </a-col>
-  </a-row>
+    </Col>
+  </Row>
 </template>

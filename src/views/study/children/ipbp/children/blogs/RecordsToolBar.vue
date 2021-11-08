@@ -5,9 +5,7 @@ import {
   Tooltip,
   Badge,
   Popconfirm,
-  Input,
   Divider,
-  Select,
   Space,
 } from "ant-design-vue";
 import { instanceService } from "./InstanceService";

@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { Form, FormItem, Input, Button, Row, Switch } from "ant-design-vue";
+import { Form, Input, Button, Row, Switch } from "ant-design-vue";
 import { ref } from "@vue/reactivity";
 import { loginService } from "./LoginService";
 import Stars from "@components/stars.vue";
@@ -19,14 +19,14 @@ const { formState, loginBtn, reset, noAuthLogin, loading } = loginService();
   <div class="w">
     <div class="content">
       <Form :model="formState">
-        <FormItem label="username">
+        <Form.Item label="username">
           <Input v-model:value="formState.username" />
-        </FormItem>
-        <FormItem label="password">
-          <a-input v-model:value="formState.password" />
-        </FormItem>
+        </Form.Item>
+        <Form.Item label="password">
+          <Input v-model:value="formState.password" />
+        </Form.Item>
 
-        <FormItem>
+        <Form.Item>
           <Row justify="center">
             <Button type="primary" :loading="loading" @click="loginBtn"
               >login</Button
@@ -36,7 +36,7 @@ const { formState, loginBtn, reset, noAuthLogin, loading } = loginService();
               >游客登录</Button
             >
           </Row>
-        </FormItem>
+        </Form.Item>
       </Form>
       <Row justify="center">
         开启星空特效

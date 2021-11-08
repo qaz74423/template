@@ -7,19 +7,12 @@ import Functional from "./children/functional/Functional.vue";
 
 <template>
   <div>
-    <Suspense>
-      <template #default>
-        <div :style="{ columns: 1, columnGap: 8 }">
-          <div class="item"><Currying /></div>
-          <div class="item"><Monad /></div>
-          <div class="item"><Monad2 /></div>
-          <div class="item"><Functional /></div>
-        </div>
-      </template>
-      <template #fallback>
-        <div>Loading...</div>
-      </template>
-    </Suspense>
+    <div :style="{ columns: 1, columnGap: 8 }">
+      <div class="item"><Currying /></div>
+      <div class="item"><Monad /></div>
+      <div class="item"><Monad2 /></div>
+      <div class="item"><Functional /></div>
+    </div>
   </div>
 </template>
 

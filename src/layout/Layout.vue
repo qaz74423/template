@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { Layout, LayoutFooter } from "ant-design-vue";
+import { Layout } from "ant-design-vue";
 import ContentVue from "./content/Content.vue";
 import HeaderVue from "./header/Header.vue";
 import SiderVue from "./sider/Sider.vue";
@@ -20,8 +20,8 @@ const { showFooter, isTabs } = LayoutService();
       <TabVue v-if="isTabs" />
       <!-- 主体内容 -->
       <ContentVue />
-      <LayoutFooter v-if="showFooter" :style="{ textAlign: 'center' }"
-        >Ant Design ©2018 Created by Ant UED</LayoutFooter
+      <Layout.Footer v-if="showFooter" :style="{ textAlign: 'center' }"
+        >Ant Design ©2018 Created by Ant UED</Layout.Footer
       >
     </Layout>
     <!-- 右边设置栏 -->

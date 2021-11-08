@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { Card, CardMeta, Row, Divider } from "ant-design-vue";
+import { Card, Row, Divider } from "ant-design-vue";
 import {
   GithubOutlined,
   EditOutlined,
@@ -17,7 +17,7 @@ const { code, showCode, pattern, redirect } =
   <div>
     <Card>
       <!-- 卡片源信息 -->
-      <CardMeta :title="pattern.title" :description="pattern.describe" />
+      <Card.Meta :title="pattern.title" :description="pattern.describe" />
 
       <!-- 例子 -->
       <div style="margin: 20px 0; overflow: hidden">

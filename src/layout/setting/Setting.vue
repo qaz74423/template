@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { Row, Switch, Select, SelectOption, Drawer } from "ant-design-vue";
+import { Row, Switch, Select, Drawer } from "ant-design-vue";
 import { ref } from "vue";
 import { SettingOutlined, CloseOutlined } from "@ant-design/icons-vue";
 import { appService } from "../../AppService";
@@ -42,8 +42,8 @@ const onClose = () => {
     <Row class="setting-item" type="flex" justify="space-between">
       <span>Router Transition</span>
       <Select ref="select" v-model:value="transition">
-        <SelectOption value="fade-left">fade-left</SelectOption>
-        <SelectOption value="fade-right">fade-right</SelectOption>
+        <Select.Option value="fade-left">fade-left</Select.Option>
+        <Select.Option value="fade-right">fade-right</Select.Option>
       </Select>
     </Row>
 
@@ -51,8 +51,8 @@ const onClose = () => {
     <Row class="setting-item" type="flex" justify="space-between">
       <span>Theme</span>
       <Select ref="select" v-model:value="theme">
-        <SelectOption value="light">light</SelectOption>
-        <SelectOption value="dark">dark</SelectOption>
+        <Select.Option value="light">light</Select.Option>
+        <Select.Option value="dark">dark</Select.Option>
       </Select>
     </Row>
   </Drawer>

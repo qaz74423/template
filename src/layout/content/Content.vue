@@ -1,11 +1,11 @@
 <script lang="ts" setup>
 import { appService } from "../../AppService";
-import { LayoutContent } from "ant-design-vue";
+import { Layout } from "ant-design-vue";
 const { transition } = appService.serviceDiscovery();
 </script>
 
 <template>
-  <LayoutContent class="content">
+  <Layout.Content class="content">
     <router-view v-slot="{ Component }">
       <transition :name="transition">
         <component :is="Component" />
@@ -27,7 +27,7 @@ const { transition } = appService.serviceDiscovery();
         </transition>
       </template>
     </router-view> -->
-  </LayoutContent>
+  </Layout.Content>
 </template>
 <style lang="scss" scoped>
 .content {

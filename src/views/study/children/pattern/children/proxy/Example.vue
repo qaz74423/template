@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref } from "vue";
-import { Button, Row, Input, Form, FormItem } from "ant-design-vue";
+import { Button, Row, Input, Form } from "ant-design-vue";
 import { _Event } from "./Event";
 
 const { sendFile, proxySendFile } = _Event();
@@ -13,18 +13,18 @@ const file = ref("");
 <template>
   <Row justify="space-around">
     <Form>
-      <FormItem label="文件名">
+      <Form.Item label="文件名">
         <Input v-model:value="file" />
-      </FormItem>
+      </Form.Item>
 
-      <FormItem label="延迟">
+      <Form.Item label="延迟">
         <Input v-model:value="wait" />
-      </FormItem>
+      </Form.Item>
 
-      <FormItem>
+      <Form.Item>
         <Button @click="sendFile(file)">普通发送</Button>
         <Button @click="proxySendFile(file, wait)">代理发送</Button>
-      </FormItem>
+      </Form.Item>
     </Form>
   </Row>
 </template>

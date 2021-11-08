@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { Drawer, LayoutSider } from "ant-design-vue";
+import { Drawer, Layout } from "ant-design-vue";
 import MenuVue from "./menu/Menu.vue";
 import SiteLogoVue from "./SiteLogo.vue";
 import { appService } from "../../AppService";
@@ -35,7 +35,7 @@ const width = 240;
   </Drawer>
 
   <!-- 宽度高时用Sider -->
-  <LayoutSider
+  <Layout.Sider
     v-else
     collapsible
     :trigger="null"
@@ -46,7 +46,7 @@ const width = 240;
   >
     <SiteLogoVue />
     <MenuVue />
-  </LayoutSider>
+  </Layout.Sider>
 </template>
 
 <style lang="scss" scoped></style>

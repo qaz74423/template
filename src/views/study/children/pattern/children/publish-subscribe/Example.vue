@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { Card, CardMeta, Button, Row, Divider, message } from "ant-design-vue";
+import { Button, Row, message } from "ant-design-vue";
 import { _Event } from "./Event";
 
 const { addlisten, trigger, remove } = _Event();

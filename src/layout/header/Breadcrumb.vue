@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { Breadcrumb, BreadcrumbItem } from "ant-design-vue";
+import { Breadcrumb } from "ant-design-vue";
 import { breadcrumbService } from "./BreadcrumbService";
 
 const { breadcrumbs, handerClick } = breadcrumbService();
@@ -7,12 +7,12 @@ const { breadcrumbs, handerClick } = breadcrumbService();
 
 <template>
   <Breadcrumb class="breadcrumb">
-    <BreadcrumbItem
+    <Breadcrumb.Item
       @click="handerClick(item.path)"
       class="item"
       v-for="item in breadcrumbs"
       :key="item.path"
-      >{{ item.name }}</BreadcrumbItem
+      >{{ item.name }}</Breadcrumb.Item
     >
   </Breadcrumb>
 </template>

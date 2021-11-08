@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref } from "vue";
-import { Form, FormItem, Input, Button } from "ant-design-vue";
+import { Form, Input, Button } from "ant-design-vue";
 import { _Event } from "./Event";
 
 //例子
@@ -13,14 +13,14 @@ const buy = () => {
 </script>
 <template>
   <Form layout="inline">
-    <FormItem>
+    <Form.Item>
       <Input v-model:value="type" placeholder="输入宠物类型(dog,duck,cat)" />
-    </FormItem>
-    <FormItem>
+    </Form.Item>
+    <Form.Item>
       <Input v-model:value="name" placeholder="输入宠物名字" />
-    </FormItem>
-    <FormItem>
+    </Form.Item>
+    <Form.Item>
       <Button @click="buy">购买</Button>
-    </FormItem>
+    </Form.Item>
   </Form>
 </template>

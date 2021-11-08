@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { Card, Row, Col } from "ant-design-vue";
 import { appService } from "../../../AppService";
 type PenelType = {
   icon: any;
@@ -17,17 +18,17 @@ const props = defineProps<{ item: PenelType }>();
 </script>
 
 <template>
-  <a-card class="card" :style="{ backgroundColor: props.item.bgcolor }">
-    <a-row type="flex" :justify="isMob ? 'center' : 'space-between'">
-      <a-col>
+  <Card class="card" :style="{ backgroundColor: props.item.bgcolor }">
+    <Row type="flex" :justify="isMob ? 'center' : 'space-between'">
+      <Col>
         <component class="icon" :is="props.item.icon" />
-      </a-col>
-      <a-col v-if="!isMob">
+      </Col>
+      <Col v-if="!isMob">
         <div class="text">{{ props.item.text }}</div>
         <div class="number">{{ props.item.number }}</div>
-      </a-col>
-    </a-row>
-  </a-card>
+      </Col>
+    </Row>
+  </Card>
 </template>
 <style scoped lang="scss">
 .card {

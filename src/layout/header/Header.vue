@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { LayoutHeader } from "ant-design-vue";
+import { Layout } from "ant-design-vue";
 import { MenuFoldOutlined, MenuUnfoldOutlined } from "@ant-design/icons-vue";
 import { appService } from "../../AppService";
 import BreadcrumbVue from "./Breadcrumb.vue";
@@ -8,7 +8,7 @@ const { collapsed, isMob } = appService.serviceDiscovery();
 </script>
 
 <template>
-  <LayoutHeader :style="{ background: '#fff', padding: 0 }">
+  <Layout.Header :style="{ background: '#fff', padding: 0 }">
     <menu-unfold-outlined
       v-if="collapsed"
       class="trigger"
@@ -23,7 +23,7 @@ const { collapsed, isMob } = appService.serviceDiscovery();
     <BreadcrumbVue v-if="!isMob"></BreadcrumbVue>
     <!-- 个人信息 -->
     <UserInfoVue></UserInfoVue>
-  </LayoutHeader>
+  </Layout.Header>
 </template>
 
 <style lang="scss" scoped>

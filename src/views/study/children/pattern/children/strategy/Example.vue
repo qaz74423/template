@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { Form, FormItem, Select, SelectOption, Input } from "ant-design-vue";
+import { Form, Select, Input } from "ant-design-vue";
 import { ref, watch } from "vue";
 import { _Event, strategyType } from "./Event";
 
@@ -20,19 +20,19 @@ watch(
 
 <template>
   <Form layout="inline">
-    <FormItem label="基础工资">
+    <Form.Item label="基础工资">
       <Input v-model:value="baseMoney" placeholder="baseMoney" />
-    </FormItem>
-    <FormItem label="等级">
+    </Form.Item>
+    <Form.Item label="等级">
       <Select v-model:value="level">
-        <SelectOption value="S">S</SelectOption>
-        <SelectOption value="A">A</SelectOption>
-        <SelectOption value="B">B</SelectOption>
-        <SelectOption value="C">C</SelectOption>
+        <Select.Option value="S">S</Select.Option>
+        <Select.Option value="A">A</Select.Option>
+        <Select.Option value="B">B</Select.Option>
+        <Select.Option value="C">C</Select.Option>
       </Select>
-    </FormItem>
-    <FormItem label="总工资">
+    </Form.Item>
+    <Form.Item label="总工资">
       <Input disabled v-model:value="totalMoney" />
-    </FormItem>
+    </Form.Item>
   </Form>
 </template>

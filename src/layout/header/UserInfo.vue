@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { Dropdown, Avatar, Menu, MenuItem, MenuDivider } from "ant-design-vue";
+import { Dropdown, Avatar, Menu } from "ant-design-vue";
 import { UserOutlined } from "@ant-design/icons-vue";
 import { useRouter } from "vue-router";
 import { getStorage } from "@utils/auth";
@@ -34,10 +34,12 @@ const logout = () => {
     </span>
     <template #overlay>
       <Menu v-if="isLogin">
-        <MenuItem key="0" @click="router.push('/user-info')">个人中心</MenuItem>
-        <MenuItem key="1">个人设置（没写）</MenuItem>
-        <MenuDivider />
-        <MenuItem key="2" @click="logout">退出登录</MenuItem>
+        <Menu.Item key="0" @click="router.push('/user-info')"
+          >个人中心</Menu.Item
+        >
+        <Menu.Item key="1">个人设置（没写）</Menu.Item>
+        <Menu.Divider />
+        <Menu.Item key="2" @click="logout">退出登录</Menu.Item>
       </Menu>
     </template>
   </Dropdown>
