@@ -2,7 +2,7 @@ import { Apis, Data, Record } from "./Shared";
 
 import { useRequestor } from "@utils/requestor/useRequestor";
 
-export async function fetchRecords(payload: Record) {
+export async function fetchRecords(payload: Record | null) {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
       resolve(1);

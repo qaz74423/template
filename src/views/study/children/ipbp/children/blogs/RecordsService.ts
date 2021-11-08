@@ -1,8 +1,8 @@
 import { ColumnProps } from "ant-design-vue/lib/table/interface";
-import { createService } from "../../../../../../hooks/soa";
-import { useChosen } from "../../../../../../hooks/useChosen";
+import { createService } from "@hooks/soa";
+import { useChosen } from "@hooks/useChosen";
 import { deleteRecords, fetchRecords } from "./Apis";
-import { useXhr } from "../../../../../../hooks/useXhr";
+import { useXhr } from "@hooks/useXhr";
 import { message } from "ant-design-vue";
 
 function RecordsService() {
@@ -34,13 +34,10 @@ function RecordsService() {
     try {
       hide = message.loading("正在删除中 。。。");
       const { msg, code } = await deleteRecords(isSelect ? store.value : [id!]);
-      console.log(msg, code);
-
       message[code == 200 ? "success" : "error"](msg);
     } catch (e) {
     } finally {
       hide?.();
-      // 不太懂？是刷新么
       request();
       // 重置选择状态
       store.value = [];

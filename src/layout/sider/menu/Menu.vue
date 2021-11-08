@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { Menu } from "ant-design-vue";
 import MenuItem from "./MenuItem.vue";
 import { menuService } from "./MenuService";
 
@@ -7,7 +8,7 @@ const { getMenuRouter, handleClick, selectedKeys, color, theme } =
 </script>
 
 <template>
-  <a-menu
+  <Menu
     :theme="theme"
     mode="inline"
     :selectedKeys="selectedKeys"
@@ -20,5 +21,5 @@ const { getMenuRouter, handleClick, selectedKeys, color, theme } =
       :key="item.path"
       :item="item"
     ></MenuItem>
-  </a-menu>
+  </Menu>
 </template>

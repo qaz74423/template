@@ -9,7 +9,8 @@ const codeRef = ref<HTMLElement | null>(null);
 watch(
   codeRef,
   (v) => {
-    Hljs.highlightBlock(v!);
+    // Hljs.highlightBlock(v);
+    Hljs.highlightElement(v);
   },
   { flush: "post" }
 );

@@ -1,6 +1,7 @@
 import type { AxiosInstance, AxiosRequestConfig, AxiosResponse } from "axios";
 import axios from "axios";
 import { AxiosCanceler } from "./useAxiosCanceler";
+import { setStorage } from "@utils/auth";
 import type {
   CreateAxiosOptions,
   HttpResponseResult,
@@ -72,6 +73,12 @@ export class CustomAxios {
           response = responseInterceptor(response);
         }
 
+        // 设token
+        // 这个后端有问题，应该统一大写开头的
+
+        response.headers?.authorization
+          ? setStorage("token", response.headers.authorization)
+          : null;
         return response;
       },
       undefined

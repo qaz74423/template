@@ -24,7 +24,6 @@ export class RecordClass implements Record {
   title = "";
   description = "";
   content = "";
-  created = null;
   status = 0;
 }
 

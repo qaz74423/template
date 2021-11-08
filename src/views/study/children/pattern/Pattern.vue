@@ -24,7 +24,14 @@ const { isMob } = appService.serviceDiscovery();
     <div class="item"><ChainOfResponsibility /></div>
 
     <!-- 测试页面，先保留 -->
-    <!-- <div class="item"><Test /></div> -->
+    <!-- <Suspense>
+      <template #default>
+        <div class="item"><Test /></div>
+      </template>
+      <template #fallback>
+        <div>loading...</div>
+      </template>
+    </Suspense> -->
   </div>
 </template>
 <style lang="scss" scoped>

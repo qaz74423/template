@@ -1,5 +1,6 @@
 <script setup lang="ts">
-import { ref, Ref, inject } from "vue";
+import { Row, Switch, Select, SelectOption, Drawer } from "ant-design-vue";
+import { ref } from "vue";
 import { SettingOutlined, CloseOutlined } from "@ant-design/icons-vue";
 import { appService } from "../../AppService";
 const { isTabs, showFooter, transition, theme } = appService.serviceDiscovery();
@@ -11,7 +12,7 @@ const onClose = () => {
 </script>
 
 <template>
-  <a-drawer
+  <Drawer
     title="Page style setting"
     :placement="'right'"
     :visible="isVisible"
@@ -26,35 +27,35 @@ const onClose = () => {
     </template>
 
     <!-- 展示Tab -->
-    <a-row class="setting-item" type="flex" justify="space-between">
+    <Row class="setting-item" type="flex" justify="space-between">
       <span>Show Tags-View</span>
-      <a-switch v-model:checked="isTabs" />
-    </a-row>
+      <Switch v-model:checked="isTabs" />
+    </Row>
 
     <!-- 展示footer -->
-    <a-row class="setting-item" type="flex" justify="space-between">
+    <Row class="setting-item" type="flex" justify="space-between">
       <span>Show Footer</span>
-      <a-switch v-model:checked="showFooter" />
-    </a-row>
+      <Switch v-model:checked="showFooter" />
+    </Row>
 
     <!-- 路由动画 -->
-    <a-row class="setting-item" type="flex" justify="space-between">
+    <Row class="setting-item" type="flex" justify="space-between">
       <span>Router Transition</span>
-      <a-select ref="select" v-model:value="transition">
-        <a-select-option value="fade-left">fade-left</a-select-option>
-        <a-select-option value="fade-right">fade-right</a-select-option>
-      </a-select>
-    </a-row>
+      <Select ref="select" v-model:value="transition">
+        <SelectOption value="fade-left">fade-left</SelectOption>
+        <SelectOption value="fade-right">fade-right</SelectOption>
+      </Select>
+    </Row>
 
     <!-- 主题 -->
-    <a-row class="setting-item" type="flex" justify="space-between">
+    <Row class="setting-item" type="flex" justify="space-between">
       <span>Theme</span>
-      <a-select ref="select" v-model:value="theme">
-        <a-select-option value="light">light</a-select-option>
-        <a-select-option value="dark">dark</a-select-option>
-      </a-select>
-    </a-row>
-  </a-drawer>
+      <Select ref="select" v-model:value="theme">
+        <SelectOption value="light">light</SelectOption>
+        <SelectOption value="dark">dark</SelectOption>
+      </Select>
+    </Row>
+  </Drawer>
 </template>
 
 <style lang="scss" scoped>

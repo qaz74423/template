@@ -1,9 +1,10 @@
 <script lang="ts" setup>
+import { Dropdown, Avatar, Menu, MenuItem, MenuDivider } from "ant-design-vue";
 import { UserOutlined } from "@ant-design/icons-vue";
 import { useRouter } from "vue-router";
-import { getStorage } from "../../utils/auth";
+import { getStorage } from "@utils/auth";
 import type { UserType } from "../../api/user";
-import { appService } from "../../AppService";
+import { appService } from "@AppService";
 const router = useRouter();
 const { isLogin, isMob } = appService.serviceDiscovery();
 
@@ -22,26 +23,24 @@ const logout = () => {
 };
 </script>
 <template>
-  <a-dropdown class="right" @click="handlerClick">
+  <Dropdown n class="right" @click="handlerClick">
     <span class="hover-con">
-      <a-avatar :size="isMob ? 40 : 50" :src="isLogin ? userInfo.avatar : ''">
+      <Avatar :size="isMob ? 40 : 50" :src="isLogin ? userInfo.avatar : ''">
         <template #icon>
           <UserOutlined />
         </template>
-      </a-avatar>
+      </Avatar>
       <a class="username">{{ isLogin ? userInfo.username : "登录" }}</a>
     </span>
     <template #overlay>
-      <a-menu v-if="isLogin">
-        <a-menu-item key="0" @click="router.push('/user-info')"
-          >个人中心</a-menu-item
-        >
-        <a-menu-item key="1">个人设置（没写）</a-menu-item>
-        <a-menu-divider />
-        <a-menu-item key="2" @click="logout">退出登录</a-menu-item>
-      </a-menu>
+      <Menu v-if="isLogin">
+        <MenuItem key="0" @click="router.push('/user-info')">个人中心</MenuItem>
+        <MenuItem key="1">个人设置（没写）</MenuItem>
+        <MenuDivider />
+        <MenuItem key="2" @click="logout">退出登录</MenuItem>
+      </Menu>
     </template>
-  </a-dropdown>
+  </Dropdown>
 </template>
 
 <style lang="scss" scoped>

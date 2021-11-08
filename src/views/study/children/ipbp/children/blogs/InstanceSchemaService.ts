@@ -11,7 +11,7 @@ function InstanceSchemaService() {
     content: [{ required: true, whitespace: true, message: "必须填" }],
   });
 
-  // 可能是接口没多例导致新增有bug, 暂时这样写
+  // 可能是接口没多例导致新增有bug
   const record = ref<Record>(new RecordClass());
   console.log(record.value);
 

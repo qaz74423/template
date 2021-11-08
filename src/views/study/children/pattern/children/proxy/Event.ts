@@ -1,3 +1,4 @@
+import { useXhr } from "@hooks/useXhr";
 import { message } from "ant-design-vue";
 export function _Event() {
   const sendFile = (files: any) => {
@@ -8,7 +9,7 @@ export function _Event() {
     const caches: any[] = [];
     let timer: number | undefined;
 
-    return (file: any, wait: number) => {
+    return async (file: any, wait: number) => {
       caches.push(file);
       if (timer) return;
 
@@ -24,5 +25,6 @@ export function _Event() {
   return {
     sendFile,
     proxySendFile,
+    //
   };
 }
